@@ -1,24 +1,27 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { db } from '../../firebase-config';
-import {collection, getDoc, getDocs} from "firebase/firestore";
+import {collection, getDoc, getDocs, setDoc} from "firebase/firestore";
 
 const MainData = createContext();
 
 const DataContext = ({children}) => {
 
-  const [users, setUsers] = useState([]);
-  const userCollectionRef = collection(db, "clothesData");
+  const [data, setData] = useState([]);
+  const userCollectionRef = collection(db, "clothingData");
   const getData = async () => {
     const data = await getDocs(userCollectionRef);
-    setUsers(data.docs.map((doc, idx) => {
+    const arr = (data.docs.map((doc, idx) => {
       console.log(({...doc.data(), id:doc.id}), idx);
       return ({...doc.data(), id:doc.id})
     }))
+    setData([...arr]);
+    console.log(arr);
+
   }
 
   useEffect(() => {getData()}, []);
 
-    const elements = {};
+    const elements = {data};
   return (
     <MainData.Provider value={elements}>{children}</MainData.Provider>
   )
