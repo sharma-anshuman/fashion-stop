@@ -15,9 +15,9 @@ const ProductsPage = () => {
   return !data.length?<Loader />: (
     <React.Fragment>
       <Navbar />
-      <div>
+      <div className='products'>
         {
-          <h1>Content will go here</h1>
+          data.map((item) => <ProductCard item={item} />)
         }
       </div>
       <Footer />
