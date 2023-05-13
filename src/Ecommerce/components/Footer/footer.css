@@ -1,0 +1,17 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #19A7CE;
+    margin: 0;
+    padding: 0.5rem;
+}
+.social-icon{
+    margin: 1rem;
+    font-size: xx-large;
+    color: #F6F1F1;
+    cursor: pointer;
+}
+.social-icon:hover{
+    color: #146C94;
+}

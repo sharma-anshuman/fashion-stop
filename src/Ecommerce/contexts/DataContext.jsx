@@ -11,11 +11,10 @@ const DataContext = ({children}) => {
   const getData = async () => {
     const data = await getDocs(userCollectionRef);
     const arr = (data.docs.map((doc, idx) => {
-      console.log(({...doc.data(), id:doc.id}), idx);
+      // console.log(({...doc.data(), id:doc.id}), idx);
       return ({...doc.data(), id:doc.id})
     }))
     setData([...arr]);
-    console.log(arr);
 
   }
 
