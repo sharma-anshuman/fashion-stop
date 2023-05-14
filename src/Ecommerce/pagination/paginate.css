@@ -1,0 +1,26 @@
+.paginate-container{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 1rem auto;
+    max-width: fit-content;
+    column-gap: 5px;
+}
+
+.paginate-container a{
+    background-color: #19a7ce;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 10px;
+    width: max-content;
+    font-weight: 600;
+    cursor: pointer;
+}
+.paginate-container a:hover{
+    background-color: #ce4019;
+    color: white;
+}
+
+.paginationActive a{
+    background-color: #146C94;
+}

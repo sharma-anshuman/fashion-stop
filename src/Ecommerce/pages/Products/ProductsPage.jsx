@@ -1,29 +1,27 @@
 import React from "react";
-import { useState, useMemo } from "react";
-import "./products.css";
+import { useState, useEffect } from "react";
+// Components
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
-import { UseData } from "../../contexts/DataContext";
-
-import ProductCard from "./ProductCard";
-
-let PageSize = 4;
+// Paignation
+import { UsePagination } from "../../pagination/Pagination";
+import "./products.css";
 
 const ProductsPage = () => {
-  const { data } = UseData();
+  const { paginateKaro, displayData } = UsePagination();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [displayData]);
 
-  console.log("were on the homepage", data);
-
-  return !data.length ? (
+  return !displayData.length ? (
     <Loader />
   ) : (
     <React.Fragment>
       <Navbar />
-      <div className="products">
-        {data.map((item) => (
-          <ProductCard item={item} />
-        ))}
+      <div className="main-products">
+        <div className="products">{displayData}</div>
+        <div className="paginate-karo">{paginateKaro}</div>
       </div>
       <Footer />
     </React.Fragment>
