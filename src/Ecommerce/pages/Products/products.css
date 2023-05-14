@@ -1,7 +1,12 @@
+.main-products{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
 .products{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: whitesmoke;
 }
