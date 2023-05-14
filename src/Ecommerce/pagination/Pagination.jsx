@@ -12,7 +12,7 @@ const Pagination = ({ children }) => {
   const [pageNumber, setPageNumber] = useState(0);
   const { data } = UseData();
 
-  const dataPerPage = 10;
+  const dataPerPage = 8;
   const pagesVisited = pageNumber * dataPerPage;
 
   const displayData = data

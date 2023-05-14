@@ -7,6 +7,7 @@ const ProductCard = ({ item }) => {
   const {
     id,
     productName,
+    category,
     size,
     imageLink,
     rating,

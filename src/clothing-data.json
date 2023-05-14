@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "category": "men",
     "productName": "Levi's",
     "size": "S",
     "rating": 4.5,
@@ -15,6 +16,7 @@
   },
   {
     "id": 2,
+    "category": "men",
     "productName": "Nike",
     "size": "M",
     "rating": 4.2,
@@ -29,6 +31,7 @@
   },
   {
     "id": 3,
+    "category": "men",
     "productName": "Adidas",
     "size": "L",
     "rating": 4.7,
@@ -43,6 +46,7 @@
   },
   {
     "id": 4,
+    "category": "men",
     "productName": "Ralph Lauren",
     "size": "XL",
     "rating": 4.0,
@@ -57,6 +61,7 @@
   },
   {
     "id": 5,
+    "category": "men",
     "productName": "Tommy Hilfiger",
     "size": "XXL",
     "rating": 4.3,
@@ -71,6 +76,7 @@
   },
   {
     "id": 6,
+    "category": "men",
     "productName": "Calvin Klein",
     "size": "M",
     "rating": 4.8,
@@ -85,6 +91,7 @@
   },
   {
     "id": 7,
+    "category": "men",
     "productName": "Gucci",
     "size": "M",
     "rating": 4.1,
@@ -99,6 +106,7 @@
   },
   {
     "id": 8,
+    "category": "men",
     "productName": "Hugo Boss",
     "size": "XL",
     "rating": 4.4,
@@ -109,10 +117,11 @@
     "outOfStock": false,
     "isTrending": true,
     "deliveryTime": 3,
-        "imageLink": "https://images.unsplash.com/photo-1617331647819-2495792e53e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fG1lbnMlMjBzd2VhdHNoaXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    "imageLink": "https://images.unsplash.com/photo-1617331647819-2495792e53e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fG1lbnMlMjBzd2VhdHNoaXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
     "id": 9,
+    "category": "men",
     "productName": "The North Face",
     "size": "S",
     "rating": 3.7,
@@ -127,6 +136,7 @@
   },
   {
     "id": 10,
+    "category": "men",
     "productName": "Under Armour",
     "size": "L",
     "rating": 4.7,
@@ -140,15 +150,9 @@
     "imageLink": "https://images.unsplash.com/photo-1617114919297-3c8ddb01f599?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWVucyUyMGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
   },
 
-
-
-
-
-
-
-
   {
     "id": 11,
+    "category": "women",
     "productName": "Zara",
     "size": "S",
     "rating": 4.5,
@@ -163,6 +167,7 @@
   },
   {
     "id": 12,
+    "category": "women",
     "productName": "H&M",
     "size": "M",
     "rating": 4.2,
@@ -177,6 +182,7 @@
   },
   {
     "id": 13,
+    "category": "women",
     "productName": "Forever 21",
     "size": "L",
     "rating": 4.7,
@@ -191,6 +197,7 @@
   },
   {
     "id": 14,
+    "category": "women",
     "productName": "Topshop",
     "size": "XL",
     "rating": 4.0,
@@ -205,6 +212,7 @@
   },
   {
     "id": 15,
+    "category": "women",
     "productName": "Mango",
     "size": "XXL",
     "rating": 4.3,
@@ -219,6 +227,7 @@
   },
   {
     "id": 16,
+    "category": "women",
     "productName": "ASOS",
     "size": "M",
     "rating": 4.8,
@@ -233,6 +242,7 @@
   },
   {
     "id": 17,
+    "category": "women",
     "productName": "Free People",
     "size": "M",
     "rating": 4.1,
@@ -247,6 +257,7 @@
   },
   {
     "id": 18,
+    "category": "women",
     "productName": "Madewell",
     "size": "XL",
     "rating": 4.4,
@@ -257,10 +268,11 @@
     "outOfStock": false,
     "isTrending": true,
     "deliveryTime": 3,
-        "imageLink": "https://images.unsplash.com/photo-1528991435120-e73e05a58897?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fHdvbWVuJTIwZHJlc3Nlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+    "imageLink": "https://images.unsplash.com/photo-1528991435120-e73e05a58897?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fHdvbWVuJTIwZHJlc3Nlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
     "id": 19,
+    "category": "women",
     "productName": "Reformation",
     "size": "S",
     "rating": 3.7,
@@ -275,6 +287,7 @@
   },
   {
     "id": 20,
+    "category": "women",
     "productName": "Anthropologie",
     "size": "L",
     "rating": 4.7,
@@ -286,11 +299,158 @@
     "isTrending": true,
     "deliveryTime": 4,
     "imageLink": "https://images.unsplash.com/photo-1561643241-9abf82d76a68?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d29tZW4lMjBkcmVzc2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+
+  
+
+  {
+    "id": 21,
+    "category": "kids",
+    "productName": "Carter's",
+    "size": "S",
+    "rating": 4.2,
+    "reviewCount": 465,
+    "discount": 15,
+    "price": 800,
+    "priceAfterDiscount": 680,
+    "outOfStock": false,
+    "isTrending": true,
+    "deliveryTime": 3,
+    "imageLink": "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8a2lkcyUyMGZhc2hpb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 22,
+    "category": "kids",
+    "productName": "GapKids",
+    "size": "M",
+    "rating": 3.5,
+    "reviewCount": 259,
+    "discount": 25,
+    "price": 1200,
+    "priceAfterDiscount": 900,
+    "outOfStock": false,
+    "isTrending": false,
+    "deliveryTime": 4,
+    "imageLink": "https://images.unsplash.com/photo-1534881210762-dc317b7fb644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGtpZHMlMjBmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 23,
+    "category": "kids",
+    "productName": "Old Navy Kids",
+    "size": "L",
+    "rating": 4.8,
+    "reviewCount": 642,
+    "discount": 10,
+    "price": 600,
+    "priceAfterDiscount": 540,
+    "outOfStock": false,
+    "isTrending": true,
+    "deliveryTime": 2,
+    "imageLink": "https://images.unsplash.com/photo-1602018490317-51998dff2862?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGtpZHMlMjBmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 24,
+    "category": "kids",
+    "productName": "Gymboree",
+    "size": "XL",
+    "rating": 3.1,
+    "reviewCount": 205,
+    "discount": 8,
+    "price": 1500,
+    "priceAfterDiscount": 1380,
+    "outOfStock": false,
+    "isTrending": false,
+    "deliveryTime": 5,
+    "imageLink": "https://images.unsplash.com/photo-1529756148791-fbca69bfe693?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGtpZHMlMjBmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 25,
+    "category": "kids",
+    "productName": "The Children's Place",
+    "size": "XXL",
+    "rating": 4.4,
+    "reviewCount": 728,
+    "discount": 20,
+    "price": 1000,
+    "priceAfterDiscount": 800,
+    "outOfStock": true,
+    "isTrending": false,
+    "deliveryTime": 7,
+    "imageLink": "https://images.unsplash.com/photo-1543854704-2b1b011701e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGtpZHMlMjBmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 26,
+    "category": "kids",
+    "productName": "OshKosh B'gosh",
+    "size": "M",
+    "rating": 4.9,
+    "reviewCount": 371,
+    "discount": 30,
+    "price": 500,
+    "priceAfterDiscount": 350,
+    "outOfStock": false,
+    "isTrending": false,
+    "deliveryTime": 2,
+    "imageLink": "https://images.unsplash.com/photo-1487033858121-f6f74a05c1de?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGtpZHMlMjBmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 27,
+    "category": "kids",
+    "productName": "Janie and Jack",
+    "size": "M",
+    "rating": 3.6,
+    "reviewCount": 503,
+    "discount": 12,
+    "price": 1800,
+    "priceAfterDiscount": 1584,
+    "outOfStock": false,
+    "isTrending": false,
+    "deliveryTime": 4,
+    "imageLink": "https://images.unsplash.com/photo-1552874869-5c39ec9288dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fGtpZHMlMjBmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 28,
+    "category": "kids",
+    "productName": "Hanna Andersson",
+    "size": "XL",
+    "rating": 4.6,
+    "reviewCount": 67,
+    "discount": 5,
+    "price": 200,
+    "priceAfterDiscount": 190,
+    "outOfStock": false,
+    "isTrending": true,
+    "deliveryTime": 3,
+    "imageLink": "https://images.unsplash.com/photo-1535094479671-d2bc2898514c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fGtpZHMlMjBmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 29,
+    "category": "kids",
+    "productName": "Zara Kids",
+    "size": "S",
+    "rating": 3.2,
+    "reviewCount": 719,
+    "discount": 22,
+    "price": 900,
+    "priceAfterDiscount": 702,
+    "outOfStock": false,
+    "isTrending": false,
+    "deliveryTime": 2,
+    "imageLink": "https://images.unsplash.com/photo-1636130748258-3ef052ed4b12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTI4fHxraWRzJTIwZmFzaGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 30,
+    "category": "kids",
+    "productName": "H&M Kids",
+    "size": "L",
+    "rating": 4.7,
+    "reviewCount": 126,
+    "discount": 18,
+    "price": 1600,
+    "priceAfterDiscount": 1312,
+    "outOfStock": false,
+    "isTrending": true,
+    "deliveryTime": 4,
+    "imageLink": "https://images.unsplash.com/photo-1599624427857-461fd60c23e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjMwfHxraWRzJTIwZmFzaGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
   }
-
-
-
-
 ]
-
-
