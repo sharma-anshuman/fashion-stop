@@ -1,7 +1,11 @@
 import React from "react";
 import "./productcard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartShopping,
+  faHeart,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = ({ item }) => {
   const {
@@ -46,14 +50,16 @@ const ProductCard = ({ item }) => {
           </div>
           <div className="price-discount">
             <p>
-            &#8377;{priceAfterDiscount} <span>&#8377;{price}</span>
+              &#8377;{priceAfterDiscount} <span>&#8377;{price}</span>
             </p>
             <p>{discount}% Off</p>
           </div>
         </div>
 
         <div className="product-bottom">
-            <button><FontAwesomeIcon icon={faCartShopping} /> Add to cart </button>
+          <button>
+            <FontAwesomeIcon icon={faCartShopping} /> Add to cart{" "}
+          </button>
         </div>
       </div>
     </React.Fragment>

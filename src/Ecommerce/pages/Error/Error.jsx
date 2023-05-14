@@ -1,10 +1,10 @@
-import React from 'react'
-import './error.css'
+import React from "react";
+import "./error.css";
 
 const Error = () => {
-  return (
-    <div>Error</div>
-  )
-}
+  return <>
+  
+  </>
+};
 
-export default Error
+export default Error;
