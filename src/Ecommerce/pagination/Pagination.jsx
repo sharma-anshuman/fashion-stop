@@ -5,12 +5,13 @@ import { UseData } from "../contexts/DataContext";
 import "./paginate.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { UseFilters } from "../contexts/FilterContext";
 
 const PaginateContext = createContext();
 
 const Pagination = ({ children }) => {
   const [pageNumber, setPageNumber] = useState(0);
-  const { data } = UseData();
+  const { dataAfterFilter: data } = UseFilters();
 
   const dataPerPage = 8;
   const pagesVisited = pageNumber * dataPerPage;

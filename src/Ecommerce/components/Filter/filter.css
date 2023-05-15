@@ -1,0 +1,44 @@
+.filterMain{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: left;
+    width: 100%;
+    padding-right: 1rem;
+}
+.filterMain h3{
+    margin: 0;
+    margin-bottom: 10px;
+}
+.filter-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    margin-left: 5%;
+    margin-top: 1rem;
+}
+.filter-head h3{
+    align-self: center;
+    margin: 0;
+}
+
+.filter{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+}
+.filter-clear{
+    padding: 5px;
+    border-radius: 5px;
+    height: fit-content;
+    align-self: center;
+    background-color: #19A7CE;
+    color: #F6F1F1;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+.filter-clear:hover{
+    background-color: #146C94;
+}
