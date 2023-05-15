@@ -9,6 +9,11 @@
   background-color: white;
   border-radius: 5px;
 }
+.productCard:hover{
+  box-shadow: -2px -3px 20px 2px grey;
+  transition: 0.3s;
+}
+
 .productCard p {
   margin: 0;
 }

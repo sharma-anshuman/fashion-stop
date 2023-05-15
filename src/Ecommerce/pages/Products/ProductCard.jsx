@@ -6,6 +6,7 @@ import {
   faHeart,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ item }) => {
   const {
@@ -23,9 +24,11 @@ const ProductCard = ({ item }) => {
     reviewCount,
     deliveryTime,
   } = item;
+  console.log(id)
+  const navigate = useNavigate();
   return (
     <React.Fragment key={id}>
-      <div className="productCard">
+      <div className="productCard" onClick={() => {navigate(`/product/${id}`)}}>
         <div className="product-top">
           <img className="ootd" src={imageLink} />
           <div className="heart">

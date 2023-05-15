@@ -6,6 +6,7 @@ import Profile from "./pages/Profile/Profile";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Error from "./pages/Error/Error";
 import ProductsPage from "./pages/Products/ProductsPage";
+import Product from "./pages/Product Detail/Product";
 
 const MainRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/product/:ID" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/profile" element={<Profile />} />

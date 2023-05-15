@@ -15,7 +15,7 @@ const FilterUI = () => {
       <div className="filterMain">
         <div className="filter-head">
           <h3>Filters</h3>
-          <button className="filter-clear">Clear</button>
+          <button onClick={() => dispatchFilter({type: "reset"})} className="filter-clear">Clear</button>
         </div>
 
         <div className="filter filter-price">
