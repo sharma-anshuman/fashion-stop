@@ -12,16 +12,18 @@ import {
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { UseFilters } from "../../contexts/FilterContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const {dispatchFilter} = UseFilters();
   return (
     <nav>
       <div className="nav-left">
         <h1 className="navLogo">fashion stop</h1>
       </div>
       <div className="nav-mid">
-        <input type="text" placeholder="Search" />
+        <input onChange={(event) => dispatchFilter({type: "search", value: event.target.value})} type="text" placeholder="Search" />
       </div>
       <div className="nav-right">
         <button onClick={() => navigate("/products")}>Explore</button>

@@ -10,3 +10,17 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.products-and-filter{
+    display: flex;
+}
+
+.filter-component{
+    display: flex;
+    overflow-y: scroll;
+    flex-basis: 30%;
+}
+.pro-main{
+    display: flex;
+    flex-direction: column;
+}

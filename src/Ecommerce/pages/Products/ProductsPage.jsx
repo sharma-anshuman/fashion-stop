@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
+import FilterUI from "../../components/Filter/FilterUI";
 // Paignation
 import { UsePagination } from "../../pagination/Pagination";
 import "./products.css";
@@ -18,12 +19,20 @@ const ProductsPage = () => {
     <Loader />
   ) : (
     <React.Fragment>
+      <div className="pro-main">
+
       <Navbar />
-      <div className="main-products">
-        <div className="products">{displayData}</div>
-        <div className="paginate-karo">{paginateKaro}</div>
+      <div className="products-and-filter">
+        <div className="filter-component">
+          <FilterUI />
+        </div>
+        <div className="main-products">
+          <div className="products">{displayData}</div>
+          <div className="paginate-karo">{paginateKaro}</div>
+        </div>
       </div>
       <Footer />
+      </div>
     </React.Fragment>
   );
 };
