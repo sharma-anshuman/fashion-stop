@@ -27,6 +27,10 @@ const SignUpContext = ({ children }) => {
       const temp = await setDoc(doc(db, "users", CurrUser.user.uid), {
         firstName: values.firstName,
         lastName: values.lastName,
+        cart: [],
+        wishlist: [],
+        addresses: [],
+        orderHistory: []
       });
     } catch (e) {
       console.error(e.message);
