@@ -2,11 +2,14 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import Cart from "./pages/Cart/Cart";
-import Profile from "./pages/Profile/Profile";
+import Profile from "./pages/Profile/MyProfile/Profile";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Error from "./pages/Error/Error";
 import ProductsPage from "./pages/Products/ProductsPage";
 import Product from "./pages/Product Detail/Product";
+import SignupPage from "./pages/LoginSignup/SignupPage";
+import Addresses from "./pages/Profile/Addresses/Addresses";
+import OrderHistory from "./pages/Profile/OrderHistory/OrderHistory";
 
 const MainRoutes = () => {
   return (
@@ -16,8 +19,12 @@ const MainRoutes = () => {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/product/:ID" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />}>
+          <Route path="addresses" element={<Addresses />} />
+          <Route path="myorders" element={<OrderHistory />} />
+        </Route>
         <Route path="*" element={<Error />} />
       </Routes>
     </React.Fragment>
