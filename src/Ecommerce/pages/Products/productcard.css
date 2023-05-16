@@ -26,6 +26,7 @@
   min-width: 10rem;
   margin: 0;
   border-radius: 5px;
+  cursor: pointer;
 }
 .heart {
   position: absolute;
