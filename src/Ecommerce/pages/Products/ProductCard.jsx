@@ -28,9 +28,16 @@ const ProductCard = ({ item }) => {
   const navigate = useNavigate();
   return (
     <React.Fragment key={id}>
+<<<<<<< Updated upstream
       <div className="productCard" onClick={() => {navigate(`/product/${id}`)}}>
+=======
+      <div
+        className="productCard">
+>>>>>>> Stashed changes
         <div className="product-top">
-          <img className="ootd" src={imageLink} />
+          <img  onClick={() => {
+          navigate(`/product/${id}`);
+        }} className="ootd" src={imageLink} />
           <div className="heart">
             <FontAwesomeIcon icon={faHeart} />
           </div>
