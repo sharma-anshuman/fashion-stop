@@ -24,20 +24,19 @@ const ProductCard = ({ item }) => {
     reviewCount,
     deliveryTime,
   } = item;
-  console.log(id)
+  console.log(id);
   const navigate = useNavigate();
   return (
     <React.Fragment key={id}>
-<<<<<<< Updated upstream
-      <div className="productCard" onClick={() => {navigate(`/product/${id}`)}}>
-=======
-      <div
-        className="productCard">
->>>>>>> Stashed changes
+      <div className="productCard">
         <div className="product-top">
-          <img  onClick={() => {
-          navigate(`/product/${id}`);
-        }} className="ootd" src={imageLink} />
+          <img
+            onClick={() => {
+              navigate(`/product/${id}`);
+            }}
+            className="ootd"
+            src={imageLink}
+          />
           <div className="heart">
             <FontAwesomeIcon icon={faHeart} />
           </div>
