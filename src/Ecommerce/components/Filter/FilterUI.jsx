@@ -32,8 +32,8 @@ const FilterUI = () => {
 
         <div className="filter filter-category">
           <h3>Categories</h3>
-          {gender.map((item) => (
-            <label>
+          {gender.map((item, idx) => (
+            <label key={idx}>
               <input
                 onChange={() =>
                   dispatchFilter({
@@ -51,8 +51,8 @@ const FilterUI = () => {
 
         <div className="filter filter-size">
           <h3>Sizes</h3>
-          {sizing.map((size) => (
-            <label>
+          {sizing.map((size, idx) => (
+            <label key={idx}>
               <input
                 onChange={() => dispatchFilter({ type: "size", value: size })}
                 type="checkbox"
@@ -65,8 +65,8 @@ const FilterUI = () => {
 
         <div className="filter filter-rating">
           <h3>Rating</h3>
-          {rates.map((rate) => (
-            <label>
+          {rates.map((rate, idx) => (
+            <label key={idx}>
               <input
                 onChange={() => dispatchFilter({ type: "rating", value: rate })}
                 checked={filters.rating === rate}
@@ -97,7 +97,7 @@ const FilterUI = () => {
           </label>
         </div>
       </div>
-    </React.Fragment>
+    </React.Fragment> 
   );
 };
 

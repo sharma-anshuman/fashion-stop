@@ -4,6 +4,7 @@ import MainRoutes from "./MainRoutes";
 import DataContext from "./contexts/DataContext";
 import Pagination from "./pagination/Pagination";
 import FilterContext from "./contexts/FilterContext";
+import SignUpContext from "./contexts/Signup/Signup";
 
 const EcommerceMain = () => {
   return (
@@ -12,7 +13,9 @@ const EcommerceMain = () => {
         <DataContext>
           <FilterContext>
             <Pagination>
-              <MainRoutes />
+              <SignUpContext>
+                <MainRoutes />
+              </SignUpContext>
             </Pagination>
           </FilterContext>
         </DataContext>

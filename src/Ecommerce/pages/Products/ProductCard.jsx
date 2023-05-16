@@ -24,7 +24,6 @@ const ProductCard = ({ item }) => {
     reviewCount,
     deliveryTime,
   } = item;
-  console.log(id);
   const navigate = useNavigate();
   return (
     <React.Fragment key={id}>

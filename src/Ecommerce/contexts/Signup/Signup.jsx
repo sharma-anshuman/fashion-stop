@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useContext, createContext, useState } from "react";
 import { Formik, Form } from "formik";
 import TextField from "./TextField";
 import * as Yup from "yup";
 
-const Signup = () => {
+//
+import { createUserWithEmailAndPassword } from "@firebase/auth";
+import { auth } from "../../../firebase-config";
+import { db } from "../../../firebase-config";
+import { addDoc, collection, getDoc } from "@firebase/firestore";
+import { doc, setDoc } from "@firebase/firestore";
+
+const SignupContext = createContext();
+
+const SignUpContext = ({ children }) => {
+  const [credentials, setCredentials] = useState();
+  const [currUser, setCurr] = useState(null);
+
+  const register = async (values) => {
+    try {
+      const CurrUser = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
+      setCurr(currUser);
+      const temp = await setDoc(doc(db, "users", CurrUser.user.uid), {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        cart: [],
+        wishlist: [],
+        addresses: [],
+        orderHistory: []
+      });
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
+
   const validate = Yup.object({
     firstName: Yup.string()
       .max(15, "Must be 15 characters or less")
@@ -20,7 +53,7 @@ const Signup = () => {
       .required("Confirm password is required"),
   });
 
-  return (
+  const MainFormComponent = (
     <Formik
       initialValues={{
         firstName: "",
@@ -31,7 +64,8 @@ const Signup = () => {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        console.log(values);
+        setCredentials(values);
+        register(values);
       }}
     >
       {(formik) => (
@@ -54,6 +88,16 @@ const Signup = () => {
       )}
     </Formik>
   );
+
+  const elements = { MainFormComponent, credentials };
+
+  return (
+    <SignupContext.Provider value={elements}>{children}</SignupContext.Provider>
+  );
 };
 
-export default Signup;
+export const UseSignupContext = () => {
+  return useContext(SignupContext);
+};
+
+export default SignUpContext;

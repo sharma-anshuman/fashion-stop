@@ -16,16 +16,17 @@ const MainRoutes = () => {
     <React.Fragment>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/product/:ID" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/profile" element={<Profile />}>
+        <Route path="products" element={<ProductsPage />} />
+        <Route path="product/:ID" element={<Product />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="signup" element={<SignupPage />} />
+        <Route path="wishlist" element={<Wishlist />} />
+        <Route path="*" element={<Error />} />
+        <Route path="profile">
+          <Route index={true} element={<Profile />} />
           <Route path="addresses" element={<Addresses />} />
           <Route path="myorders" element={<OrderHistory />} />
         </Route>
-        <Route path="*" element={<Error />} />
       </Routes>
     </React.Fragment>
   );
