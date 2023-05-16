@@ -18,7 +18,7 @@ const Pagination = ({ children }) => {
 
   const displayData = data
     .slice(pagesVisited, pagesVisited + dataPerPage)
-    .map((item) => <ProductCard item={item} />);
+    .map((item) => <ProductCard key={item.id} item={item} />);
 
   const pageCount = Math.ceil(data.length / dataPerPage);
   const changePage = ({ selected }) => {

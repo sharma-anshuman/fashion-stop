@@ -1,9 +1,13 @@
 import React from 'react'
-import Signup from '../../components/Signup/Signup'
+import { UseSignupContext } from '../../contexts/Signup/Signup'
 
 const SignupPage = () => {
+  const {MainFormComponent, credentials} = UseSignupContext();
+  console.log(credentials)
   return (
-    <Signup />
+    <React.Fragment>
+      {MainFormComponent}
+    </React.Fragment>
   )
 }
 

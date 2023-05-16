@@ -14,7 +14,7 @@ const Profile = () => {
       <div>
         <h1>My profile</h1>
         <button onClick={() => {navigate('/profile/addresses')}}>My addresses</button>
-        <button>My orders</button>
+        <button onClick={() => {navigate('/profile/myorders')}}>My orders</button>
       </div>
     </React.Fragment>
   );
