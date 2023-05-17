@@ -33,7 +33,7 @@ const Navbar = () => {
         <button onClick={() => navigate("/wishlist")}>
           <FontAwesomeIcon icon={faHeart} />
         </button>
-        <button onClick={() => navigate("/profile")}>
+        <button onClick={() => navigate("/signup")}>
           <FontAwesomeIcon icon={faUser} />
         </button>
       </div>
