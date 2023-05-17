@@ -1,0 +1,51 @@
+.mainLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: lightskyblue; */
+}
+.mainLogin h1{
+    /* background-color: lightgreen; */
+    text-align: center;
+}
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+.loginForm button{
+    max-width: fit-content;
+    border: none;
+    padding: 0.3rem 1.3rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    align-self: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+.navlink{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.inputField{
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    /* background-color: green; */
+    width: 100%;
+    /* background-color: lightcoral; */
+}
+.fieldInputs{
+    display: flex;
+    
+}
+.inputField span{
+    width: 9.5rem;
+    text-align: right;
+    margin-right: 5px;
+    /* background-color: lightsalmon; */
+}

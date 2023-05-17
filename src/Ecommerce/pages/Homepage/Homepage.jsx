@@ -18,17 +18,6 @@ const Homepage = () => {
     navigate("/products");
   };
   
-  const getDataa = async () => {
-    console.log(typeof(currUser?.uid))
-    const docRef = doc(db, "users", currUser?.uid );
-    const docSnap = await getDoc(docRef);
-    
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-    } else {
-      console.log("No such document!");
-    }
-  };
 
   
   

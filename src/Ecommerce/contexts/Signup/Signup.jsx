@@ -2,6 +2,8 @@ import React, { useContext, createContext, useState, useEffect } from "react";
 import { Formik, Form } from "formik";
 import TextField from "./TextField";
 import * as Yup from "yup";
+import "../../pages/LoginSignup/loginpage.css";
+import "../../pages/LoginSignup/signuppage.css";
 
 //
 import {
@@ -14,7 +16,7 @@ import { auth } from "../../../firebase-config";
 import { db } from "../../../firebase-config";
 import { addDoc, collection, getDoc } from "@firebase/firestore";
 import { doc, setDoc } from "@firebase/firestore";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, NavLink } from "react-router-dom";
 
 const SignupContext = createContext();
 
@@ -32,7 +34,6 @@ const SignUpContext = ({ children }) => {
         values.email,
         values.password
       );
-      
     } catch (e) {
       console.error(e.message);
     }
@@ -53,9 +54,6 @@ const SignUpContext = ({ children }) => {
         addresses: [],
         orderHistory: [],
       });
-
-      
-      
     } catch (e) {
       console.error(e.message);
     }
@@ -98,20 +96,23 @@ const SignUpContext = ({ children }) => {
       }}
     >
       {(formik) => (
-        <div>
+        <div className="signupComponent">
           <h1>Signup</h1>
-          <Form>
-            <TextField lebel="First Name" name="firstName" type="text" />
-            <TextField lebel="Last Name" name="lastName" type="text" />
-            <TextField lebel="Email" name="email" type="email" />
-            <TextField lebel="Password" name="password" type="password" />
+          <Form className="signupForm">
+            <TextField lable="First Name" name="firstName" type="text" />
+            <TextField lable="Last Name" name="lastName" type="text" />
+            <TextField lable="Email" name="email" type="email" />
+            <TextField lable="Password" name="password" type="password" />
             <TextField
-              lebel="Confirm Password"
+              lable="Confirm Password"
               name="confirmPassword"
               type="password"
             />
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
+            <div className="signupButtons">
+              <button type="submit">Submit</button>
+              <button type="reset">Reset</button>
+            </div>
+            <NavLink to="/login">Already have an account</NavLink>
           </Form>
         </div>
       )}
@@ -130,12 +131,15 @@ const SignUpContext = ({ children }) => {
       }}
     >
       {(formik) => (
-        <div>
+        <div className="loginComponent">
           <h1>Login</h1>
-          <Form>
-            <TextField lebel="Email" name="email" type="email" />
-            <TextField lebel="Password" name="password" type="password" />
+          <Form className="loginForm">
+            <TextField lable="Email" name="email" type="email" />
+            <TextField lable="Password" name="password" type="password" />
             <button type="submit">Login</button>
+            <NavLink className="navlink" to="/signup">
+              Don't have an account
+            </NavLink>
           </Form>
         </div>
       )}

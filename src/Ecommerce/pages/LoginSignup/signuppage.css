@@ -1,0 +1,39 @@
+.mainSignup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8%;
+    /* background-color: lightskyblue; */
+}
+.error{
+    margin-left: 47%;
+}
+.mainSignup h1{
+    /* background-color: lightgreen; */
+    text-align: center;
+}
+.signupForm{
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+.signupButtons{
+    display: flex;
+}
+.signupForm button{
+    max-width: fit-content;
+    border: none;
+    padding: 0.3rem 1.3rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    align-self: center;
+    margin-bottom: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+.signupForm button:hover{
+    background-color: #19A7CE;
+    color: white;
+}

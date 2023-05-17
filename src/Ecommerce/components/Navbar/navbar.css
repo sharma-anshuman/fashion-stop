@@ -6,7 +6,7 @@
     margin: 0;
     font-family: 'Abril Fatface', cursive;
     color: #F6F1F1;
-    cursor: default;
+    cursor: pointer;
     user-select: none;
 }
 nav{
@@ -32,7 +32,7 @@ nav{
     margin: 10px;
 }
 .nav-mid{
-    width: 50%;
+    width: 40%;
     /* flex-shrink: 1; */
 }
 .nav-mid input{
@@ -58,4 +58,16 @@ nav button{
 nav button:hover{
    text-decoration: underline;
    color: #146C94;
+}
+nav h3{
+    margin: 0;
+    display: inline;
+    color: #F6F1F1;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 1.15rem;
+}
+nav h3:hover{
+    color: #146C94;
+    text-decoration: underline;
 }
