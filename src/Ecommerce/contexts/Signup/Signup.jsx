@@ -1,20 +1,42 @@
-import React, { useContext, createContext, useState } from "react";
+import React, { useContext, createContext, useState, useEffect } from "react";
 import { Formik, Form } from "formik";
 import TextField from "./TextField";
 import * as Yup from "yup";
 
 //
-import { createUserWithEmailAndPassword } from "@firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  signInWithEmailAndPassword,
+} from "@firebase/auth";
 import { auth } from "../../../firebase-config";
 import { db } from "../../../firebase-config";
 import { addDoc, collection, getDoc } from "@firebase/firestore";
 import { doc, setDoc } from "@firebase/firestore";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SignupContext = createContext();
 
 const SignUpContext = ({ children }) => {
-  const [credentials, setCredentials] = useState();
-  const [currUser, setCurr] = useState(null);
+  const [currUser, setCurr] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setCurr(currentUser);
+  });
+
+  const logIn = async (values) => {
+    try {
+      const CurrUser = await signInWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
+      
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
 
   const register = async (values) => {
     try {
@@ -23,19 +45,27 @@ const SignUpContext = ({ children }) => {
         values.email,
         values.password
       );
-      setCurr(currUser);
-      const temp = await setDoc(doc(db, "users", CurrUser.user.uid), {
+      const temp = await setDoc(doc(db, "users", CurrUser?.user?.uid), {
         firstName: values.firstName,
         lastName: values.lastName,
         cart: [],
         wishlist: [],
         addresses: [],
-        orderHistory: []
+        orderHistory: [],
       });
+
+      
+      
     } catch (e) {
       console.error(e.message);
     }
   };
+
+  const logOut = async () => {
+    await signOut(auth);
+  };
+
+  console.log("It's the signup context", auth?.currentUser);
 
   const validate = Yup.object({
     firstName: Yup.string()
@@ -53,7 +83,7 @@ const SignUpContext = ({ children }) => {
       .required("Confirm password is required"),
   });
 
-  const MainFormComponent = (
+  const MainSignupComponent = (
     <Formik
       initialValues={{
         firstName: "",
@@ -64,7 +94,6 @@ const SignUpContext = ({ children }) => {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        setCredentials(values);
         register(values);
       }}
     >
@@ -89,7 +118,36 @@ const SignUpContext = ({ children }) => {
     </Formik>
   );
 
-  const elements = { MainFormComponent, credentials };
+  const MainLoginComponent = (
+    <Formik
+      initialValues={{
+        email: "",
+        password: "",
+      }}
+      onSubmit={(values) => {
+        console.log("here is login");
+        logIn(values);
+      }}
+    >
+      {(formik) => (
+        <div>
+          <h1>Login</h1>
+          <Form>
+            <TextField lebel="Email" name="email" type="email" />
+            <TextField lebel="Password" name="password" type="password" />
+            <button type="submit">Login</button>
+          </Form>
+        </div>
+      )}
+    </Formik>
+  );
+
+  const elements = {
+    MainSignupComponent,
+    MainLoginComponent,
+    currUser,
+    logOut,
+  };
 
   return (
     <SignupContext.Provider value={elements}>{children}</SignupContext.Provider>

@@ -10,15 +10,15 @@ const EcommerceMain = () => {
   return (
     <React.Fragment>
       <BrowserRouter>
-        <DataContext>
-          <FilterContext>
-            <Pagination>
-              <SignUpContext>
+        <SignUpContext>
+          <DataContext>
+            <FilterContext>
+              <Pagination>
                 <MainRoutes />
-              </SignUpContext>
-            </Pagination>
-          </FilterContext>
-        </DataContext>
+              </Pagination>
+            </FilterContext>
+          </DataContext>
+        </SignUpContext>
       </BrowserRouter>
     </React.Fragment>
   );
