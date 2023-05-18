@@ -63,7 +63,7 @@ const SignUpContext = ({ children }) => {
     await signOut(auth);
   };
 
-  console.log("It's the signup context", auth?.currentUser);
+  // console.log("It's the signup context", auth?.currentUser);
 
   const validate = Yup.object({
     firstName: Yup.string()
@@ -126,7 +126,7 @@ const SignUpContext = ({ children }) => {
         password: "",
       }}
       onSubmit={(values) => {
-        console.log("here is login");
+        // console.log("here is login");
         logIn(values);
       }}
     >

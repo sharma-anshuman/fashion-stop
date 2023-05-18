@@ -7,6 +7,9 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import {db} from '../../../firebase-config';
+import { UseSignupContext } from "../../contexts/Signup/Signup";
+import { UseData } from "../../contexts/DataContext";
 
 const ProductCard = ({ item }) => {
   const {
@@ -24,6 +27,9 @@ const ProductCard = ({ item }) => {
     reviewCount,
     deliveryTime,
   } = item;
+  const {currUser} = UseSignupContext(); 
+  const currId = currUser?.uid;
+  const {CartHandler} = UseData();
   const navigate = useNavigate();
   return (
     <React.Fragment key={id}>
@@ -65,7 +71,7 @@ const ProductCard = ({ item }) => {
         </div>
 
         <div className="product-bottom">
-          <button>
+          <button onClick={() => CartHandler(id, "add")}>
             <FontAwesomeIcon icon={faCartShopping} /> Add to cart{" "}
           </button>
         </div>
