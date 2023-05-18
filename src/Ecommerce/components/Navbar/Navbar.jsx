@@ -22,25 +22,7 @@ import { UseData } from "../../contexts/DataContext";
 const Navbar = () => {
   const navigate = useNavigate();
   const { dispatchFilter } = UseFilters();
-  const { currUser } = UseSignupContext();
-  const {userData} = UseData();
-  // const [userData, setUserData] = useState(null);
-  // const getDataa = async () => {
-  //   console.log(typeof currUser?.uid, currUser?.uid);
-  //   if (currUser?.uid !== undefined) {
-  //     const docSnap = await getDoc(doc(db, "users", currUser?.uid));
-  //     console.log("docSnap", docSnap);
-  //     if (docSnap.exists()) {
-  //       console.log("Document data:", docSnap.data());
-  //       setUserData(docSnap.data());
-  //     } else {
-  //       console.log("No such document!");
-  //     }
-  //   }
-  // };
-  // useEffect(() => {
-  //   getDataa();
-  // }, []);
+  const {userData, firstName} = UseData();
 
   return (
     <nav>
@@ -61,7 +43,7 @@ const Navbar = () => {
       <div className="nav-right">
         {userData !== null && (
           <h3 onClick={() => navigate("/profile")}>
-            Welcome {userData.firstName}!!
+            Welcome {firstName}!!
           </h3>
         )}
         <button onClick={() => navigate("/products")}>Explore</button>

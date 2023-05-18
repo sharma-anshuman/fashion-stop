@@ -29,7 +29,7 @@ const ProductCard = ({ item }) => {
   } = item;
   const {currUser} = UseSignupContext(); 
   const currId = currUser?.uid;
-  const {CartHandler} = UseData();
+  const {CartHandler} = UseData();  
   const navigate = useNavigate();
   return (
     <React.Fragment key={id}>
