@@ -29,7 +29,7 @@ const ProductCard = ({ item }) => {
   } = item;
   const {currUser} = UseSignupContext(); 
   const currId = currUser?.uid;
-  const {CartHandler, wishlist, WishlistHandler} = UseData();  
+  const {CartHandler,cart,  wishlist, WishlistHandler} = UseData();  
   const navigate = useNavigate();
   return (
     <React.Fragment key={id}>
@@ -71,8 +71,8 @@ const ProductCard = ({ item }) => {
         </div>
 
         <div className="product-bottom">
-          <button onClick={() => CartHandler(id, "add")}>
-            <FontAwesomeIcon icon={faCartShopping} /> Add to cart{" "}
+          <button onClick={() => {cart[id]?navigate('/cart'):CartHandler(id, "add")}}>
+            <FontAwesomeIcon icon={faCartShopping} /> {cart[id]?"Go to cart":"Add to cart"}{" "}
           </button>
         </div>
       </div>
