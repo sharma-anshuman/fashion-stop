@@ -11,29 +11,31 @@
 }
 nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     padding: 1.3rem;
     background-color: #19A7CE;
-    max-width: 100%;
     width: 100%;
+    text-align: center;
 }
 .nav-left{
     margin-left: 0.8rem;
-    /* flex-shrink: 1; */
+    margin: 0 1rem;
+    margin-right: 2rem;
 }
 .nav-right{
+    margin: auto;
+    margin: 0 1rem;
     margin-right: 2rem;
-    /* flex-shrink: 1; */
-
 }
 .nav-right button{
     margin: 10px;
 }
 .nav-mid{
     width: 40%;
-    /* flex-shrink: 1; */
+    max-width: 400px;
+    margin: 0rem auto;
 }
 .nav-mid input{
     width: 100%;

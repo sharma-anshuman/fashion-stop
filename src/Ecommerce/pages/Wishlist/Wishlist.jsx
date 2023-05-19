@@ -12,8 +12,12 @@ const Wishlist = () => {
       {dispWishlist.map(({ productName, id }) => (
         <div>
           <h3>{productName}</h3>
-          <button onClick={() => WishlistHandler(id, "moveToCart")}>Move to cart</button>
-          <button onClick={() => WishlistHandler(id, "delete")}>Remove from wishlist</button>
+          <button onClick={() => WishlistHandler(id, "moveToCart")}>
+            Move to cart
+          </button>
+          <button onClick={() => WishlistHandler(id, "delete")}>
+            Remove from wishlist
+          </button>
         </div>
       ))}
     </React.Fragment>

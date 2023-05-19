@@ -22,7 +22,7 @@ import { UseData } from "../../contexts/DataContext";
 const Navbar = () => {
   const navigate = useNavigate();
   const { dispatchFilter } = UseFilters();
-  const {userData, firstName} = UseData();
+  const { userData, firstName } = UseData();
 
   return (
     <nav>
@@ -42,9 +42,7 @@ const Navbar = () => {
       </div>
       <div className="nav-right">
         {userData !== null && (
-          <h3 onClick={() => navigate("/profile")}>
-            Welcome {firstName}!!
-          </h3>
+          <h3 onClick={() => navigate("/profile")}>Welcome {firstName}!!</h3>
         )}
         <button onClick={() => navigate("/products")}>Explore</button>
         <button onClick={() => navigate("/cart")}>
@@ -56,6 +54,7 @@ const Navbar = () => {
         <button onClick={() => navigate("/profile")}>
           <FontAwesomeIcon icon={faUser} />
         </button>
+        {/* <h1 style={{margin: 0, display: "inline"}}>Hello</h1> */}
       </div>
     </nav>
   );

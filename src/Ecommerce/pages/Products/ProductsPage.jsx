@@ -20,18 +20,17 @@ const ProductsPage = () => {
   ) : (
     <React.Fragment>
       <div className="pro-main">
-
-      <Navbar />
-      <div className="products-and-filter">
-        <div className="filter-component">
-          <FilterUI />
+        <Navbar />
+        <div className="products-and-filter">
+          <div className="filter-component">
+            <FilterUI />
+          </div>
+          <div className="main-products">
+            <div className="products">{displayData}</div>
+            <div className="paginate-karo">{paginateKaro}</div>
+          </div>
         </div>
-        <div className="main-products">
-          <div className="products">{displayData}</div>
-          <div className="paginate-karo">{paginateKaro}</div>
-        </div>
-      </div>
-      <Footer />
+        <Footer />
       </div>
     </React.Fragment>
   );

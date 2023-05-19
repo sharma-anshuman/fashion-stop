@@ -1,0 +1,16 @@
+.cartCard{
+    display: flex;
+    max-width: 60%;
+    margin: 1rem;
+}
+.cartCard-left{
+    max-width: 30%;
+}
+.cartCard-right{
+    max-width: 70%;
+    width: 70%;
+}
+.cartCard-img{
+    width: 100%;
+    height: 100%;
+}

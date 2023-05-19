@@ -7,7 +7,7 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import {db} from '../../../firebase-config';
+import { db } from "../../../firebase-config";
 import { UseSignupContext } from "../../contexts/Signup/Signup";
 import { UseData } from "../../contexts/DataContext";
 
@@ -27,9 +27,9 @@ const ProductCard = ({ item }) => {
     reviewCount,
     deliveryTime,
   } = item;
-  const {currUser} = UseSignupContext(); 
+  const { currUser } = UseSignupContext();
   const currId = currUser?.uid;
-  const {CartHandler,cart,  wishlist, WishlistHandler} = UseData();  
+  const { CartHandler, cart, wishlist, WishlistHandler } = UseData();
   const navigate = useNavigate();
   return (
     <React.Fragment key={id}>
@@ -42,7 +42,12 @@ const ProductCard = ({ item }) => {
             className="ootd"
             src={imageLink}
           />
-          <div onClick={() => WishlistHandler(id, "add")} className={`heart ${wishlist.includes(id)?"activeHeart":""}`}>
+          <div
+            onClick={() => WishlistHandler(id, "add")}
+            className={`heart ${
+              wishlist.includes(id) && currId ? "activeHeart" : ""
+            }`}
+          >
             <FontAwesomeIcon icon={faHeart} />
           </div>
           <div className="size">
@@ -71,8 +76,13 @@ const ProductCard = ({ item }) => {
         </div>
 
         <div className="product-bottom">
-          <button onClick={() => {cart[id]?navigate('/cart'):CartHandler(id, "add")}}>
-            <FontAwesomeIcon icon={faCartShopping} /> {cart[id]?"Go to cart":"Add to cart"}{" "}
+          <button
+            onClick={() => {
+              cart[id] && currId ? navigate("/cart") : CartHandler(id, "add");
+            }}
+          >
+            <FontAwesomeIcon icon={faCartShopping} />{" "}
+            {cart[id] && currId ? "Go to cart" : "Add to cart"}{" "}
           </button>
         </div>
       </div>
