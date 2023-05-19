@@ -10,10 +10,10 @@ import { UsePagination } from "../../pagination/Pagination";
 import "./products.css";
 
 const ProductsPage = () => {
-  const { paginateKaro, displayData } = UsePagination();
+  const { paginateKaro, displayData, pageNumber } = UsePagination();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, [displayData]);
+  }, [pageNumber]);
 
   return !displayData.length ? (
     <Loader />

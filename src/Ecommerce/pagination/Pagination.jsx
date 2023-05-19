@@ -38,7 +38,7 @@ const Pagination = ({ children }) => {
       activeClassName="paginationActive"
     />
   );
-  const values = { paginateKaro, displayData };
+  const values = { paginateKaro, displayData, pageNumber };
 
   return (
     <PaginateContext.Provider value={values}>
