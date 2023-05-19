@@ -37,9 +37,14 @@
   padding: 3px 4px;
   font-size: small;
   border-radius: 5px;
+  cursor: pointer;
+}
+.activeHeart{
+  color: red;
 }
 .heart:hover {
     color: red;
+    cursor: pointer;
 }
 .trending {
   position: absolute;

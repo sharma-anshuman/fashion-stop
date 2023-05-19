@@ -49,7 +49,7 @@ const SignUpContext = ({ children }) => {
       const temp = await setDoc(doc(db, "users", CurrUser?.user?.uid), {
         firstName: values.firstName,
         lastName: values.lastName,
-        cart: [],
+        cart: {},
         wishlist: [],
         addresses: [],
         orderHistory: [],

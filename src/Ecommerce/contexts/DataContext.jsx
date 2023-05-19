@@ -18,7 +18,8 @@ const DataContext = ({ children }) => {
   const [data, setData] = useState([]);
   const [userData, setUserData] = useState(null);
   const [firstName, setFirstname] = useState("");
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState({});
+  const [wishlist, setWishlist] = useState([]);
   const { currUser } = UseSignupContext();
 
   const userCollectionRef = collection(db, "clothingData");
@@ -42,7 +43,8 @@ const DataContext = ({ children }) => {
         console.log("Document data is here:", docSnap.data());
         setUserData(docSnap.data());
         setFirstname(docSnap.data().firstName);
-        setCart([...docSnap.data().cart]);
+        setCart({...docSnap.data().cart});
+        setWishlist([...docSnap.data().wishlist]);
       } else {
         console.log("No such document!");
       }
@@ -58,22 +60,86 @@ const DataContext = ({ children }) => {
 
   const CartHandler = async (id, type) => {
     if (currUser?.uid) {
+      console.log("id of the cart is: ", cart[id]);
       const userDataRef = doc(db, "users", currUser?.uid);
-      if (type == "add" && !cart.includes(id)) {
+      if (type === "add" && !cart[id]) {
         await updateDoc(userDataRef, {
-          cart: arrayUnion(id),
+          cart: {...cart, [id]: 1},
         });
-        setCart([...cart, id]);
-      } else if (type != "add") {
+        console.log("it's always here");
+        setCart({...cart, [id]: 1});
+      } else if (type === "add" && cart[id]) {
         await updateDoc(userDataRef, {
-          cart: arrayRemove(id),
+          cart: {...cart, [id]: cart[id]+1},
         });
-        setCart([...cart.filter((i) => i != id)]);
+        setCart({...cart, [id]: cart[id]+1});
       }
+      else if((type === 'remove' && cart[id] === 1) || type === 'delete' || type==='moveToWish'){
+        const tempCart = Object.keys(cart)
+        .filter(key => key != id)
+        .reduce((acc, key) => {
+           acc[key] = cart[key];
+           return acc;
+        }, {});
+        await updateDoc(userDataRef, {
+          cart: tempCart,
+        });
+        setCart({...tempCart});
+        if(type === 'moveToWish'){
+          await updateDoc(userDataRef, {
+            wishlist: [...wishlist, id],
+          });
+          if(!wishlist.includes(id)){
+            setWishlist([...wishlist, id])
+          }
+        }
+      }
+      else if(type === 'remove' && cart[id]>1){
+        await updateDoc(userDataRef, {
+          cart: {...cart, [id]: cart[id]-1},
+        });
+        setCart({...cart, [id]: cart[id]-1});
+      }
+      
     }
   };
 
-  const elements = { data, userData, CartHandler, firstName, cart };
+
+  const WishlistHandler = async (id, type) => {
+    if (currUser?.uid) {
+      const userDataRef = doc(db, "users", currUser?.uid);
+      const tempWish = wishlist.filter((i) => i!=id);
+      if(type === 'add'){
+        if(!wishlist.includes(id)){
+          await updateDoc(userDataRef, {
+            wishlist: [...wishlist, id]
+          });
+          setWishlist([...wishlist, id]);
+        }
+        else{
+          await updateDoc(userDataRef, {
+            wishlist: [...tempWish]
+          });
+          setWishlist([...tempWish]);
+        }
+      }
+      else if(type === 'moveToCart' && !cart[id]){
+        await updateDoc(userDataRef, {
+          cart: {...cart, [id]: 1},
+        });
+        setCart({...cart, [id]: 1});
+        setWishlist([...tempWish]);
+      }
+      else if((type === 'delete') || (type === 'moveToCart' && cart[id])){
+        await updateDoc(userDataRef, {
+          wishlist: [...tempWish],
+        });
+        setWishlist([...tempWish]);
+      }
+    }
+  }
+
+  const elements = { data, userData, CartHandler, firstName, cart, wishlist, WishlistHandler };
   return <MainData.Provider value={elements}>{children}</MainData.Provider>;
 };
 

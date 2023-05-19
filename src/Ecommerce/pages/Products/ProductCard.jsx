@@ -29,7 +29,7 @@ const ProductCard = ({ item }) => {
   } = item;
   const {currUser} = UseSignupContext(); 
   const currId = currUser?.uid;
-  const {CartHandler} = UseData();  
+  const {CartHandler, wishlist, WishlistHandler} = UseData();  
   const navigate = useNavigate();
   return (
     <React.Fragment key={id}>
@@ -42,7 +42,7 @@ const ProductCard = ({ item }) => {
             className="ootd"
             src={imageLink}
           />
-          <div className="heart">
+          <div onClick={() => WishlistHandler(id, "add")} className={`heart ${wishlist.includes(id)?"activeHeart":""}`}>
             <FontAwesomeIcon icon={faHeart} />
           </div>
           <div className="size">
