@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as love } from "@fortawesome/free-solid-svg-icons";
 import { UseData } from "../../contexts/DataContext";
+import { useLocation } from "react-router-dom";
 
 const CartCard = ({ item, quantity }) => {
   const {
@@ -23,7 +24,8 @@ const CartCard = ({ item, quantity }) => {
   } = item;
   const { cart, wishlist, WishlistHandler, CartHandler } = UseData();
   const inCart = cart[id] >= 0,
-    inWish = wishlist.includes(id);
+    inWish = wishlist.includes(id), loc = useLocation().pathname.slice(1);
+    console.log("Location: ",loc);
 
   return (
     <div className="cartCard">
@@ -43,7 +45,7 @@ const CartCard = ({ item, quantity }) => {
           <span className="discount-span">&#8377;{price}</span>
         </h3>
         <h3 className="cartCard-discount">{discount}% OFF</h3>
-        <div className="cartCard-qty">
+        {loc === 'cart' && <div className="cartCard-qty">
           Quantity:
           <button onClick={() => CartHandler(id, "add")} className="qty-btn">
             +
@@ -52,15 +54,23 @@ const CartCard = ({ item, quantity }) => {
           <button onClick={() => CartHandler(id, "remove")} className="qty-btn">
             –
           </button>
-        </div>
+        </div>}
         <div className="cartCard-bottom">
-          <button onClick={() => CartHandler(id, "delete")}>Remove</button>
-          <button
+          { loc === 'cart' && <button onClick={() => CartHandler(id, "delete")}>Remove</button>}
+          { loc === 'wishlist' && <button onClick={() => WishlistHandler(id, "delete")}>Remove</button>}
+          { loc === 'cart' && <button
             id={inWish ? "inTheWishlist" : "none"}
             onClick={() => (inWish ? "" : CartHandler(id, "moveToWish"))}
           >
             {inWish ? "In The Wishlist" : "Move To Wishlist"}
+          </button>}
+          { loc == 'wishlist' && <button
+            id={inCart ? "inTheWishlist" : "none"}
+            onClick={() => (inCart ? "" : WishlistHandler(id, "moveToCart"))}
+          >
+            {inCart ? "Already in Cart" : "Move To Cart"}
           </button>
+          }
         </div>
       </div>
     </div>
