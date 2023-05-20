@@ -11,6 +11,7 @@ import SignupPage from "./pages/LoginSignup/SignupPage";
 import Addresses from "./pages/Profile/Addresses/Addresses";
 import OrderHistory from "./pages/Profile/OrderHistory/OrderHistory";
 import LoginPage from "./pages/LoginSignup/LoginPage";
+import Checkout from "./pages/checkout/Checkout";
 import { RequiresAuth } from "./components/RequiresAuth";
 
 const MainRoutes = () => {
@@ -20,11 +21,14 @@ const MainRoutes = () => {
         <Route path="/" element={<Homepage />} />
         <Route path="products" element={<ProductsPage />} />
         <Route path="product/:ID" element={<Product />} />
-        <Route path="cart" element={
+        <Route
+          path="cart"
+          element={
             <RequiresAuth>
               <Cart />
             </RequiresAuth>
-          } />
+          }
+        />
         <Route path="signup" element={<SignupPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route
@@ -37,14 +41,25 @@ const MainRoutes = () => {
         />
         <Route path="*" element={<Error />} />
         <Route path="profile">
-          <Route index={true} element={
-            <RequiresAuth>
-              <Profile />
-            </RequiresAuth>
-          } />
+          <Route
+            index={true}
+            element={
+              <RequiresAuth>
+                <Profile />
+              </RequiresAuth>
+            }
+          />
           <Route path="addresses" element={<Addresses />} />
           <Route path="myorders" element={<OrderHistory />} />
         </Route>
+          <Route
+            path="checkout"
+            element={
+              <RequiresAuth>
+                <Checkout />
+              </RequiresAuth>
+            }
+          />
       </Routes>
     </React.Fragment>
   );

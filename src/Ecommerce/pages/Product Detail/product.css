@@ -1,0 +1,130 @@
+.singleProduct {
+  display: flex;
+  position: relative;
+  max-width: 65%;
+  margin: 1rem auto;
+  /* border: 2px solid black; */
+  border-radius: 10px;
+}
+.singleProduct-left {
+  position: relative;
+  margin: 0;
+}
+.singleProduct-left img {
+  max-width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.onPicAttributes {
+  position: absolute;
+}
+.singleProduct-trending {
+  top: 0;
+  left: 0;
+  background-color: #ce4019;
+  border-radius: 10px;
+  color: white;
+  padding: 0.5rem;
+  font-weight: 500;
+  font-size: larger;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+.singleProduct-like {
+  top: 0;
+  right: 0;
+  background-color: #19a7ce;
+  border-radius: 10px;
+  color: white;
+  padding: 0.2rem 0.8rem;
+  font-weight: 500;
+  font-size: x-large;
+}
+.singleProduct-like:hover {
+  cursor: pointer;
+  color: red;
+}
+.alreadyLiked {
+  color: red;
+}
+.singleProduct-rating {
+  bottom: 0;
+  left: 0;
+  background-color: #19a7ce;
+  border-radius: 10px;
+  color: white;
+  padding: 0.5rem;
+  font-weight: 500;
+  font-size: larger;
+}
+.singleProduct-size {
+  bottom: 0;
+  right: 0;
+  background-color: #ce4019;
+  border-radius: 10px;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-size: larger;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+/* ************** */
+.singleProduct-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.singleProduct-priceNoff {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.singleProduct-priceNoff h2 {
+  margin: 0;
+}
+.singleProduct-priceNoff p {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.singleProduct-priceNoff h2 span {
+  color: grey;
+  font-weight: lighter;
+  font-size: 1.2rem;
+  text-decoration: line-through;
+}
+.singleProduct-name {
+  font-size: xx-large;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+.singleProduct-reviews {
+  margin-bottom: 2rem;
+}
+.singleProduct-rightBottom {
+  margin-top: -0.5rem;
+}
+.singleProduct-rightBottom p {
+  margin: 1.2rem 0rem;
+  font-size: 1.1rem;
+}
+.singleProduct-btn {
+  border: none;
+  padding: 0.6rem;
+  margin-bottom: -10px;
+  color: white;
+  font-weight: 500;
+  font-size: larger;
+  background-color: #19a7ce;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.singleProduct-btn:hover {
+  background-color: #146c94;
+}
+.starIcon {
+  color: #f9d949;
+}

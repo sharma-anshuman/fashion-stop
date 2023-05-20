@@ -55,7 +55,7 @@ const ProductCard = ({ item }) => {
           </div>
           <div className="ratenreview">
             <label>
-              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon className="starIcon" icon={faStar} />
               {rating}
             </label>{" "}
             | {reviewCount}

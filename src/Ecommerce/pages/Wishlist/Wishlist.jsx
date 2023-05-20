@@ -13,7 +13,7 @@ const Wishlist = () => {
         <Navbar />
         <h2>Wishlist ({dispWishlist.length})</h2>
         {dispWishlist.length === 0 && <h3>Your Wishlist is empty</h3>}
-        <div className="cartProducts">
+        <div className="wishlistProducts">
           {dispWishlist.map((item) => (
             <CartCard item={item} />
           ))}
