@@ -1,5 +1,9 @@
 import React from "react";
-import './cartcard.css'
+import "./cartcard.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as love } from "@fortawesome/free-solid-svg-icons";
+import { UseData } from "../../contexts/DataContext";
 
 const CartCard = ({ item, quantity }) => {
   const {
@@ -17,27 +21,50 @@ const CartCard = ({ item, quantity }) => {
     reviewCount,
     deliveryTime,
   } = item;
+  const { cart, wishlist, WishlistHandler, CartHandler } = UseData();
+  const inCart = cart[id] >= 0,
+    inWish = wishlist.includes(id);
 
-  return (<div className="cartCard">
-    <div className="cartCard-left">
+  return (
+    <div className="cartCard">
+      <div className="cartCard-left">
         <img className="cartCard-img" src={imageLink} />
+      </div>
+      <div className="cartCard-right">
+        <div className="cartRight-head">
+          <h2 className="cartCard-heading">{productName}</h2>
+          <div onClick={() => WishlistHandler(id, "add")}>
+            {!inWish && <FontAwesomeIcon className="wishit" icon={faHeart} />}
+            {inWish && <FontAwesomeIcon className="wishit-red" icon={love} />}
+          </div>
+        </div>
+        <h3 className="cartCard-price">
+          &#8377;{priceAfterDiscount}{" "}
+          <span className="discount-span">&#8377;{price}</span>
+        </h3>
+        <h3 className="cartCard-discount">{discount}% OFF</h3>
+        <div className="cartCard-qty">
+          Quantity:
+          <button onClick={() => CartHandler(id, "add")} className="qty-btn">
+            +
+          </button>
+          <div className="qty">{cart[id]}</div>
+          <button onClick={() => CartHandler(id, "remove")} className="qty-btn">
+            –
+          </button>
+        </div>
+        <div className="cartCard-bottom">
+          <button onClick={() => CartHandler(id, "delete")}>Remove</button>
+          <button
+            id={inWish ? "inTheWishlist" : "none"}
+            onClick={() => (inWish ? "" : CartHandler(id, "moveToWish"))}
+          >
+            {inWish ? "In The Wishlist" : "Move To Wishlist"}
+          </button>
+        </div>
+      </div>
     </div>
-    <div className="cartCard-right">
-        <h2 className="cartCard-heading">{productName}</h2>
-    <h3>&#8377;{price} <span>&#8377;{priceAfterDiscount}</span></h3>
-    <h3 className="cartCard-discount">{discount}% OFF</h3>
-    <div className="cartCard-qty">
-        Quantity:
-        <button className="qty-btn">+</button>
-        <div className="qty">{1}</div>
-        <button className="qty-btn">-</button>
-    </div>
-    <div className="cartCard-bottom">
-        <button>Remove</button>
-        <button>Move to Wishlist</button>
-    </div>
-    </div>
-  </div>)
+  );
 };
 
 export default CartCard;
