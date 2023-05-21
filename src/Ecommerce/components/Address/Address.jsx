@@ -13,6 +13,7 @@ const Address = () => {
   return (
     <div className="main-address">
       <h2 className="add-head">Address Details</h2>
+      {addresses.length === 0 && <h3 style={{marginBottom: "1rem"}}>Oops!! You've no addresses — Add an address</h3>}
       <div>
         {addresses.map((item, idx) => (
           <SingleAddress key={idx} item={item} />
