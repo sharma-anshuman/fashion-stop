@@ -4,6 +4,7 @@ import Addresses from "../Addresses/Addresses";
 import OrderHistory from "../OrderHistory/OrderHistory";
 import { useNavigate } from "react-router-dom";
 import { UseSignupContext } from "../../../contexts/Signup/Signup";
+import { ToastContainer } from "react-toastify";
 
 const Profile = () => {
 
@@ -21,6 +22,7 @@ const Profile = () => {
         <button onClick={() => {navigate('/profile/addresses')}}>My addresses</button>
         <button onClick={() => {navigate('/profile/myorders')}}>My orders</button>
         <button onClick={() => {logOut()}}>Log out</button>
+        <ToastContainer />
       </div>
     </React.Fragment>
   );

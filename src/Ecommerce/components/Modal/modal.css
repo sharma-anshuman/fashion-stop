@@ -45,9 +45,30 @@
     padding: 10px;
     margin: 0px 2%;
   }
+  .modal-header{
+    background-color: #19A7CE;
+    margin: 0;
+    padding-left: 4%;
+    color: white;
+    font-size: larger;
+  }
   
   .modal-title {
     margin: 0;
+  }
+
+  .modal-btn{
+    border: none;
+    margin-right: 0.6rem;
+    background-color: #19A7CE;
+    color: white;
+    border-radius:6px;
+    padding: 4px 8px;
+    font-weight: 500;
+  }
+  .modal-btn:hover{
+    cursor: pointer;
+    background-color: #146C94;
   }
   
   .modal-body {

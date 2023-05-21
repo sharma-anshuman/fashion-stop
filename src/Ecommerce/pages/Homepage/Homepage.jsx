@@ -17,10 +17,7 @@ const Homepage = () => {
   const clickHandler = () => {
     navigate("/products");
   };
-  
 
-  
-  
   return !data.length ? (
     <Loader />
   ) : (

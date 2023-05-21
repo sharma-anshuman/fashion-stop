@@ -12,6 +12,7 @@ import Addresses from "./pages/Profile/Addresses/Addresses";
 import OrderHistory from "./pages/Profile/OrderHistory/OrderHistory";
 import LoginPage from "./pages/LoginSignup/LoginPage";
 import Checkout from "./pages/checkout/Checkout";
+import OrderDescription from "./pages/order description/OrderDescription";
 import { RequiresAuth } from "./components/RequiresAuth";
 
 const MainRoutes = () => {
@@ -57,6 +58,14 @@ const MainRoutes = () => {
             element={
               <RequiresAuth>
                 <Checkout />
+              </RequiresAuth>
+            }
+          />
+           <Route
+            path="order-description"
+            element={
+              <RequiresAuth>
+                <OrderDescription />
               </RequiresAuth>
             }
           />

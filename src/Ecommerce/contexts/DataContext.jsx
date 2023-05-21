@@ -11,6 +11,8 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { UseSignupContext } from "./Signup/Signup";
+import { useNavigate } from "react-router-dom";
+import { ToastHandler } from "../components/Toast/Toast";
 
 const MainData = createContext();
 
@@ -74,6 +76,7 @@ const DataContext = ({ children }) => {
         });
         console.log("it's always here in DataContext.jsx");
         setCart({ ...cart, [id]: 1 });
+        ToastHandler("success", "Added to Cart");
       } else if (type === "add" && cart[id]) {
         await updateDoc(userDataRef, {
           cart: { ...cart, [id]: cart[id] + 1 },
@@ -94,6 +97,7 @@ const DataContext = ({ children }) => {
           cart: tempCart,
         });
         setCart({ ...tempCart });
+        if (type !== "moveToWish") ToastHandler("success", "Item Deleted");
         if (type === "moveToWish") {
           await updateDoc(userDataRef, {
             wishlist: [...wishlist, id],
@@ -101,6 +105,7 @@ const DataContext = ({ children }) => {
           if (!wishlist.includes(id)) {
             setWishlist([...wishlist, id]);
           }
+          ToastHandler("success", "Moved to Wishlist");
         }
       } else if (type === "remove" && cart[id] > 1) {
         await updateDoc(userDataRef, {
@@ -108,6 +113,9 @@ const DataContext = ({ children }) => {
         });
         setCart({ ...cart, [id]: cart[id] - 1 });
       }
+    }
+    else{
+      ToastHandler('error', "Login to add to Cart")
     }
   };
 
@@ -121,11 +129,13 @@ const DataContext = ({ children }) => {
             wishlist: [...wishlist, id],
           });
           setWishlist([...wishlist, id]);
+          ToastHandler("success", "Added to Wishlist");
         } else {
           await updateDoc(userDataRef, {
             wishlist: [...tempWish],
           });
           setWishlist([...tempWish]);
+          ToastHandler("success", "Removed From Wishlist");
         }
       } else if (type === "moveToCart" && !cart[id]) {
         await updateDoc(userDataRef, {
@@ -133,12 +143,17 @@ const DataContext = ({ children }) => {
         });
         setCart({ ...cart, [id]: 1 });
         setWishlist([...tempWish]);
+        ToastHandler("success", "Moved to Cart");
       } else if (type === "delete" || (type === "moveToCart" && cart[id])) {
         await updateDoc(userDataRef, {
           wishlist: [...tempWish],
         });
         setWishlist([...tempWish]);
+        if (type === "delete") ToastHandler("success", "Removed from Wishlist");
       }
+    }
+    else{
+      ToastHandler('error', "Login to add as favourite")
     }
   };
 
@@ -150,9 +165,23 @@ const DataContext = ({ children }) => {
           addresses: addresses,
         });
       }
-    }
+    };
     temp();
   }, [addresses]);
+
+  const navigate = useNavigate();
+
+  const PlaceOrderHandler = () => {
+    console.log("its here in handler", currAddress.length, cart);
+    if (addresses?.length === 0)
+      ToastHandler("error", "Add an address to continue");
+    else if (currAddress?.length === 0)
+      ToastHandler("error", "Select an address");
+    if (currAddress?.length > 0 && Object.keys(cart)?.length > 0) {
+      console.log("here in the condition");
+      navigate("order-description");
+    }
+  };
 
   const elements = {
     data,
@@ -166,6 +195,7 @@ const DataContext = ({ children }) => {
     setCurrAddress,
     currAddress,
     setAddresses,
+    PlaceOrderHandler,
   };
   return <MainData.Provider value={elements}>{children}</MainData.Provider>;
 };

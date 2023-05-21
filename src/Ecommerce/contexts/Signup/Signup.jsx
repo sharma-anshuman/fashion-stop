@@ -1,9 +1,11 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 import { Formik, Form } from "formik";
 import TextField from "./TextField";
 import * as Yup from "yup";
 import "../../pages/LoginSignup/loginpage.css";
 import "../../pages/LoginSignup/signuppage.css";
+import { ToastHandler } from "../../components/Toast/Toast";
 
 //
 import {
@@ -34,8 +36,10 @@ const SignUpContext = ({ children }) => {
         values.email,
         values.password
       );
+      ToastHandler('success', "Logged in!");
     } catch (e) {
-      console.error(e.message);
+      ToastHandler('error', e.message);
+      console.error(e, e.message);
     }
   };
 
@@ -54,13 +58,16 @@ const SignUpContext = ({ children }) => {
         addresses: [],
         orderHistory: [],
       });
+      ToastHandler('success', "Profile Created!");
     } catch (e) {
-      console.error(e.message);
+      ToastHandler('error', e.message);
+      console.error(e, e.message);
     }
   };
 
   const logOut = async () => {
     await signOut(auth);
+    ToastHandler('success', "Logged Out!");
   };
 
   // console.log("It's the signup context", auth?.currentUser);

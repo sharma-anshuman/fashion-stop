@@ -40,6 +40,7 @@
 }
 .addNewAddress:hover{
   cursor: pointer;
+  background-color: #146C94;
 }
 .mapIcon{
   margin-right: 8px;

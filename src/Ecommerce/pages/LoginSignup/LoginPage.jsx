@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { UseSignupContext } from "../../contexts/Signup/Signup";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import { ToastContainer } from "react-toastify";
 
 const LoginPage = () => {
   const { MainLoginComponent, currUser } = UseSignupContext();
@@ -15,6 +16,7 @@ const LoginPage = () => {
     <React.Fragment>
       <Navbar />
       <div className="mainLogin">{MainLoginComponent}</div>
+      <ToastContainer />
     </React.Fragment>
   );
 };

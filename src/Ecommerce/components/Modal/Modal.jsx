@@ -141,11 +141,11 @@ const Modal = (props) => {
             </form>
           </div>
           <div className="modal-footer">
-            <button onClick={props.onClose} className="button">
+            <button onClick={props.onClose} className="button modal-btn">
               Close
             </button>
-            <input type="submit" form="myForm" />
-            <input type="reset" form="myForm" value="Reset" />
+            <input className="modal-btn" type="submit" form="myForm" />
+            <input className="modal-btn" type="reset" form="myForm" value="Reset" />
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import FilterUI from "../../components/Filter/FilterUI";
 // Paignation
 import { UsePagination } from "../../pagination/Pagination";
 import "./products.css";
+import { ToastContainer } from "react-toastify";
 
 const ProductsPage = () => {
   const { paginateKaro, displayData, pageNumber } = UsePagination();
@@ -32,6 +33,7 @@ const ProductsPage = () => {
         </div>
         <Footer />
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 };
