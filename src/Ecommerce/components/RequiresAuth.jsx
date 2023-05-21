@@ -5,7 +5,7 @@ export function RequiresAuth({ children }) {
   const { currUser } = UseSignupContext();
   console.log("require auth", currUser);
   const location = useLocation();
-  console.log(location);
+  console.log("Location -> RequiresAuth.jsx: ", location);
   return currUser?.email ? (
     children
   ) : (

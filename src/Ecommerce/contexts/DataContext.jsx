@@ -20,6 +20,7 @@ const DataContext = ({ children }) => {
   const [firstName, setFirstname] = useState("");
   const [cart, setCart] = useState({});
   const [wishlist, setWishlist] = useState([]);
+  const [addresses, setAddresses] = useState([]);
   const { currUser } = UseSignupContext();
 
   const userCollectionRef = collection(db, "clothingData");
@@ -38,19 +39,23 @@ const DataContext = ({ children }) => {
   const getUserDetails = async () => {
     if (currUser?.uid !== undefined) {
       const docSnap = await getDoc(doc(db, "users", currUser?.uid));
-      console.log("docSnap", docSnap);
+      console.log("docSnap in DataContext.jsx", docSnap);
       if (docSnap.exists()) {
-        console.log("Document data is here:", docSnap.data());
+        console.log(
+          "Document data is here in DataContext.jsx:",
+          docSnap.data()
+        );
         setUserData(docSnap.data());
         setFirstname(docSnap.data().firstName);
         setCart({ ...docSnap.data().cart });
         setWishlist([...docSnap.data().wishlist]);
+        setAddresses([...docSnap.data().addresses]);
       } else {
-        console.log("No such document!");
+        console.log("No such document! in DataContext.jsx");
       }
     } else {
       setUserData(null);
-      console.log("it's in else");
+      console.log("it's in else in DataContext.jsx");
     }
   };
 
@@ -60,13 +65,13 @@ const DataContext = ({ children }) => {
 
   const CartHandler = async (id, type) => {
     if (currUser?.uid) {
-      console.log("id of the cart is: ", cart[id]);
+      console.log("id of the cart is: in DataContext.jsx ", cart[id]);
       const userDataRef = doc(db, "users", currUser?.uid);
       if (type === "add" && !cart[id]) {
         await updateDoc(userDataRef, {
           cart: { ...cart, [id]: 1 },
         });
-        console.log("it's always here");
+        console.log("it's always here in DataContext.jsx");
         setCart({ ...cart, [id]: 1 });
       } else if (type === "add" && cart[id]) {
         await updateDoc(userDataRef, {
@@ -136,6 +141,18 @@ const DataContext = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    const temp = async () => {
+      if (currUser?.uid) {
+        const userDataRef = doc(db, "users", currUser?.uid);
+        await updateDoc(userDataRef, {
+          addresses: addresses,
+        });
+      }
+    }
+    temp();
+  }, [addresses]);
+
   const elements = {
     data,
     userData,
@@ -144,6 +161,8 @@ const DataContext = ({ children }) => {
     cart,
     wishlist,
     WishlistHandler,
+    addresses,
+    setAddresses,
   };
   return <MainData.Provider value={elements}>{children}</MainData.Provider>;
 };

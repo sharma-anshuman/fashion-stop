@@ -1,0 +1,73 @@
+.main-address {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  flex-basis: 50%;
+}
+.add-head {
+  text-align: center;
+}
+.singleInput {
+  display: flex;
+  align-items: center;
+  border: 2px solid tomato;
+  padding: 8px 10px;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.singleInput p {
+  margin: 6px 0;
+}
+.singleInput h2 {
+  margin: 5px 0;
+}
+.singleInput input {
+  margin-right: 1.3rem;
+  padding: 10px;
+}
+.address-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 55px 55px 55px 55px 55px;
+    margin-left: auto;
+}
+
+.name {
+  width: 90%;
+  margin: 5px 5px;
+  padding: 10px;
+}
+
+.tel {
+  width: 90%;
+  margin: 5px 5px;
+  padding: 10px;
+}
+
+.pincode {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 5px;
+}
+
+.city {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 5px;
+}
+
+.address-text {
+  width: 95.5%;
+  margin: 5px 5px;
+  padding: 10px;
+  grid-row-start: 3;
+  grid-row-end: 5;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.state-select {
+  width: 95%;
+  padding: 10px;
+  margin: 5px 10px;
+}

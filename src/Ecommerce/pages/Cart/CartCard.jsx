@@ -25,7 +25,7 @@ const CartCard = ({ item, quantity }) => {
   const { cart, wishlist, WishlistHandler, CartHandler } = UseData();
   const inCart = cart[id] >= 0,
     inWish = wishlist.includes(id), loc = useLocation().pathname.slice(1);
-    console.log("Location: ",loc);
+    console.log("Location of CartCard.jsx: ",loc);
 
   return (
     <div className="cartCard">
