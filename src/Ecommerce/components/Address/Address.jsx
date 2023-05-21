@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { UseData } from "../../contexts/DataContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationPin } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import SingleAddress from "./SingleAddress";
 import Modal from "../Modal/Modal";
 import "./address.css";
@@ -9,7 +9,7 @@ import "./address.css";
 const Address = () => {
   const { addresses } = UseData();
   const [show, setShow] = useState(false);
-  
+
   return (
     <div className="main-address">
       <h2 className="add-head">Address Details</h2>
@@ -19,15 +19,14 @@ const Address = () => {
         ))}
       </div>
       <div>
-        <button onClick={() => setShow(true)}>
-          <FontAwesomeIcon icon={faLocationPin} /> Add new Address
+        <button className="addNewAddress" onClick={() => setShow(true)}>
+          <FontAwesomeIcon className="mapIcon" icon={faMapMarkerAlt} /> Add new Address{" "}
         </button>
         <Modal
           title="Add a new address"
           onClose={() => setShow(false)}
           show={show}
-        >
-        </Modal>
+        ></Modal>
       </div>
     </div>
   );

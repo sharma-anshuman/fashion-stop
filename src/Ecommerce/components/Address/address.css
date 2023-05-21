@@ -7,10 +7,49 @@
 .add-head {
   text-align: center;
 }
+.nameAndBin{
+  display: flex;
+  justify-content: space-between;
+}
+.nameAndBin button{
+  margin-left: 1rem;
+  border: none;
+  height: fit-content;
+  padding: 8px 12px;
+  border-radius: 7px;
+  color: white;
+  background-color: #19A7CE;
+}
+.nameAndBin button:hover{
+  background-color: #146C94;
+  cursor: pointer;
+}
+.mainAdd{
+  width: 100%;
+}
+.addNewAddress{
+  text-align: left;
+  font-size: medium;
+  border: none;
+  font-weight: lighter;
+  background-color: #19A7CE;
+  color: white;
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+.addNewAddress:hover{
+  cursor: pointer;
+}
+.mapIcon{
+  margin-right: 8px;
+}
+
 .singleInput {
   display: flex;
   align-items: center;
-  border: 2px solid tomato;
+  border: 2px solid #146C94;
+  border-radius: 10px;
   padding: 8px 10px;
   text-align: left;
   margin-bottom: 1rem;

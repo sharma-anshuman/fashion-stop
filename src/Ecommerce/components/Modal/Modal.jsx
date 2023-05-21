@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
+import { v4 as uuidv4 } from 'uuid';
 import "./modal.css";
 import { UseData } from "../../contexts/DataContext";
 const states = [
@@ -64,6 +65,7 @@ const Modal = (props) => {
       name: event.target.name.value,
       pincode: event.target.pin.value,
       state: event.target.state.value,
+      id: uuidv4()
     };
     setAddresses([...addresses, obj]);
   };

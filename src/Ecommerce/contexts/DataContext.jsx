@@ -18,6 +18,7 @@ const DataContext = ({ children }) => {
   const [data, setData] = useState([]);
   const [userData, setUserData] = useState(null);
   const [firstName, setFirstname] = useState("");
+  const [currAddress, setCurrAddress] = useState("");
   const [cart, setCart] = useState({});
   const [wishlist, setWishlist] = useState([]);
   const [addresses, setAddresses] = useState([]);
@@ -162,6 +163,8 @@ const DataContext = ({ children }) => {
     wishlist,
     WishlistHandler,
     addresses,
+    setCurrAddress,
+    currAddress,
     setAddresses,
   };
   return <MainData.Provider value={elements}>{children}</MainData.Provider>;
