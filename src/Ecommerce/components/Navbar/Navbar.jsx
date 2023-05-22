@@ -22,8 +22,8 @@ import { UseData } from "../../contexts/DataContext";
 const Navbar = () => {
   const navigate = useNavigate();
   const { dispatchFilter } = UseFilters();
-  const { userData, firstName } = UseData();
-
+  const { userData, firstName, cart, wishlist } = UseData();
+  console.log("Here in the navbar!!!!!!!", Object.keys(cart).length, wishlist.length)
   return (
     <nav>
       <div className="nav-left">
@@ -42,16 +42,18 @@ const Navbar = () => {
       </div>
       <div className="nav-right">
         {userData !== null && (
-          <h3 onClick={() => navigate("/profile")}>Welcome {firstName}!!</h3>
+          <h3 onClick={() => navigate("/profile")}>Hey {firstName}!!</h3>
         )}
         <button onClick={() => navigate("/products")}>Explore</button>
-        <button onClick={() => navigate("/cart")}>
+        <button className="nav-icon" onClick={() => navigate("/cart")}>
           <FontAwesomeIcon icon={faShoppingCart} />
+          {Object.keys(cart).length>0 && <div className="lengthCount"><p>{Object.keys(cart).length}</p></div>}
         </button>
-        <button onClick={() => navigate("/wishlist")}>
+        <button className="nav-icon" onClick={() => navigate("/wishlist")}>
           <FontAwesomeIcon icon={faHeart} />
+          {wishlist.length>0 && <div className="lengthCount"><p>{wishlist.length}</p></div>}
         </button>
-        <button onClick={() => navigate("/profile")}>
+        <button className="nav-icon" onClick={() => navigate("/profile")}>
           <FontAwesomeIcon icon={faUser} />
         </button>
         {/* <h1 style={{margin: 0, display: "inline"}}>Hello</h1> */}

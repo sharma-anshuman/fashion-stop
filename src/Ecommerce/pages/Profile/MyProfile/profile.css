@@ -1,0 +1,59 @@
+
+  .profile-main{
+    background-color: whitesmoke;
+  }
+  .container{
+    user-select: none;
+    margin: 100px auto;
+    background: #19A7CE;
+    color: white;
+    border-radius: 5px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 20px -10px rgba(0,0,0,.75);
+  }
+  .cover-photo{
+    background: url(https://static.vecteezy.com/system/resources/previews/000/109/425/non_2x/free-vector-watercolor-paper-texture.jpg);
+    height: 160px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+  .profile{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin: 93px 0 0 -175px;
+    border: 1px solid #146C94;
+    padding: 7px;
+    background: #146C94;
+  }
+  .profile-name{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 27px 0 0 120px;
+  }
+  .about{
+    margin-top: 35px;
+    line-height: 21px;
+  }
+  
+.logout-btn{
+    margin: 10px 0 40px 0;
+    background: white;
+    border: none;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .logout-btn{
+    margin-left: 10px;
+    color: #19A7CE;
+    font-weight: 600;
+  }
+  .logout-btn:hover{
+    color: white;
+    background: #146C94;
+    transition: .2s;
+  }

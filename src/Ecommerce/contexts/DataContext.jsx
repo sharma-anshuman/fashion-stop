@@ -289,7 +289,8 @@ const DataContext = ({ children }) => {
     setAddresses,
     PlaceOrderHandler,
     setCartPrice,
-    currOrder
+    currOrder,
+    lastName
   };
   return <MainData.Provider value={elements}>{children}</MainData.Provider>;
 };

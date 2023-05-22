@@ -5,27 +5,77 @@ import OrderHistory from "../OrderHistory/OrderHistory";
 import { useNavigate } from "react-router-dom";
 import { UseSignupContext } from "../../../contexts/Signup/Signup";
 import { ToastContainer } from "react-toastify";
+import "./profile.css";
+import { UseData } from "../../../contexts/DataContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import Footer from "../../../components/Footer/Footer";
 
 const Profile = () => {
-
   const navigate = useNavigate();
-  const {currUser, logOut} = UseSignupContext();
+  const { currUser, logOut } = UseSignupContext();
+  const { firstName, lastName } = UseData();
   useEffect(() => {
-    if(!currUser?.email) navigate('/login')
+    if (!currUser?.email) navigate("/login");
   }, [currUser]);
 
   return (
     <React.Fragment>
+      <div className="profile-main">
       <Navbar />
-      <div>
-        <h1>My profile</h1>
-        <button onClick={() => {navigate('/profile/addresses')}}>My addresses</button>
-        <button onClick={() => {navigate('/profile/myorders')}}>My orders</button>
-        <button onClick={() => {logOut()}}>Log out</button>
-        <ToastContainer />
+      <div class="container">
+        <div class="cover-photo">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
+            className="profile"
+          />
+        </div>
+        <div class="profile-name">{firstName + " " + lastName}</div>
+        <p class="about">Welcome to FashionStop!!</p>
+        <button
+          onClick={() => {
+            logOut();
+          }}
+          class="logout-btn"
+        >
+          Logout
+        </button>
       </div>
+      <Footer />
+      </div>
+      <ToastContainer />
     </React.Fragment>
   );
 };
 
 export default Profile;
+
+// <div>
+//   <h1>My profile</h1>
+//   <button
+//     onClick={() => {
+//       navigate("/profile/addresses");
+//     }}
+//   >
+//     My addresses
+//   </button>
+//   <button
+//     onClick={() => {
+//       navigate("/profile/myorders");
+//     }}
+//   >
+//     My orders
+//   </button>
+//   <button
+//     onClick={() => {
+//       logOut();
+//     }}
+//   >
+//     Log out
+//   </button>
+//   <ToastContainer />
+// </div>;
