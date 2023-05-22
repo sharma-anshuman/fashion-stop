@@ -68,19 +68,10 @@ const DataContext = ({ children }) => {
 
   const CartHandler = async (id, type) => {
     if (currUser?.uid) {
-      console.log("id of the cart is: in DataContext.jsx ", cart[id]);
-      const userDataRef = doc(db, "users", currUser?.uid);
       if (type === "add" && !cart[id]) {
-        await updateDoc(userDataRef, {
-          cart: { ...cart, [id]: 1 },
-        });
-        console.log("it's always here in DataContext.jsx");
         setCart({ ...cart, [id]: 1 });
         ToastHandler("success", "Added to Cart");
       } else if (type === "add" && cart[id]) {
-        await updateDoc(userDataRef, {
-          cart: { ...cart, [id]: cart[id] + 1 },
-        });
         setCart({ ...cart, [id]: cart[id] + 1 });
       } else if (
         (type === "remove" && cart[id] === 1) ||
@@ -93,67 +84,70 @@ const DataContext = ({ children }) => {
             acc[key] = cart[key];
             return acc;
           }, {});
-        await updateDoc(userDataRef, {
-          cart: tempCart,
-        });
         setCart({ ...tempCart });
         if (type !== "moveToWish") ToastHandler("success", "Item Deleted");
         if (type === "moveToWish") {
-          await updateDoc(userDataRef, {
-            wishlist: [...wishlist, id],
-          });
           if (!wishlist.includes(id)) {
             setWishlist([...wishlist, id]);
           }
           ToastHandler("success", "Moved to Wishlist");
         }
       } else if (type === "remove" && cart[id] > 1) {
-        await updateDoc(userDataRef, {
-          cart: { ...cart, [id]: cart[id] - 1 },
-        });
         setCart({ ...cart, [id]: cart[id] - 1 });
       }
-    }
-    else{
-      ToastHandler('error', "Login to add to Cart")
+    } else {
+      ToastHandler("error", "Login to add to Cart");
     }
   };
 
-  const WishlistHandler = async (id, type) => {
+  const UpdateDBcart = async () => {
     if (currUser?.uid) {
       const userDataRef = doc(db, "users", currUser?.uid);
+      await updateDoc(userDataRef, {
+        cart: cart,
+      });
+    }
+  };
+  useEffect(() => {
+    UpdateDBcart();
+  }, [cart]);
+
+  const WishlistHandler = async (id, type) => {
+    if (currUser?.uid) {
       const tempWish = wishlist.filter((i) => i != id);
       if (type === "add") {
         if (!wishlist.includes(id)) {
-          await updateDoc(userDataRef, {
-            wishlist: [...wishlist, id],
-          });
           setWishlist([...wishlist, id]);
           ToastHandler("success", "Added to Wishlist");
         } else {
-          await updateDoc(userDataRef, {
-            wishlist: [...tempWish],
-          });
           setWishlist([...tempWish]);
           ToastHandler("success", "Removed From Wishlist");
         }
       } else if (type === "moveToCart" && !cart[id]) {
-        await updateDoc(userDataRef, {
-          cart: { ...cart, [id]: 1 },
-        });
         setCart({ ...cart, [id]: 1 });
         setWishlist([...tempWish]);
         ToastHandler("success", "Moved to Cart");
       } else if (type === "delete" || (type === "moveToCart" && cart[id])) {
-        await updateDoc(userDataRef, {
-          wishlist: [...tempWish],
-        });
+        setCart({ ...cart, [id]: cart[id] + 1 });
         setWishlist([...tempWish]);
-        if (type === "delete") ToastHandler("success", "Removed from Wishlist");
+        if(type === 'moveToCart') ToastHandler("success", "Moved to Cart");
+        else if (type === "delete") ToastHandler("success", "Removed from Wishlist");
       }
+    } else {
+      ToastHandler("error", "Login to add as favourite");
     }
-    else{
-      ToastHandler('error', "Login to add as favourite")
+  };
+
+  useEffect(() => {
+    UpdateDBcart();
+  }, [wishlist]);
+
+  const UpdateDBwishlist = async () => {
+    if (currUser?.uid) {
+      const userDataRef = doc(db, "users", currUser?.uid);
+      await updateDoc(userDataRef, {
+        wishlist: wishlist,
+      });
     }
   };
 

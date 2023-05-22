@@ -47,8 +47,8 @@ const CheckoutCard = ({ dispCart }) => {
       </div>
       <div>
         <button
-          onClick={() =>
-            loc == "cart" ? navigate("/checkout") : PlaceOrderHandler() //navigate("/order-description")
+          onClick={
+            () => (loc == "cart" ? navigate("/checkout") : PlaceOrderHandler()) //navigate("/order-description")
           }
           className="checkout-btn"
         >
