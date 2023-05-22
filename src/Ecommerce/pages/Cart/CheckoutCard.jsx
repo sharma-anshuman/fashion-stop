@@ -13,7 +13,7 @@ const CheckoutCard = ({ dispCart }) => {
   );
   useEffect(() => {
     setCartPrice(sum);
-  }, []);
+  }, [cart]);
   const loc = useLocation().pathname.slice(1);
   return (
     <div className="checkout">

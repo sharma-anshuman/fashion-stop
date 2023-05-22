@@ -264,7 +264,7 @@ const DataContext = ({ children }) => {
   const navigate = useNavigate();
 
   const PlaceOrderHandler = () => {
-    console.log("its here in handler", currAddress.length, cart);
+    console.log("its here in handler", currAddress?.length, cart);
     if (addresses?.length === 0)
       ToastHandler("error", "Add an address to continue");
     else if (currAddress?.length === 0)
