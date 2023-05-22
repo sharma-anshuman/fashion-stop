@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import { UseData } from "../../contexts/DataContext";
 import CartCard from "../Cart/CartCard";
+import { ToastContainer } from "react-toastify";
 import './wishlist.css'
 
 const Wishlist = () => {
@@ -19,6 +20,7 @@ const Wishlist = () => {
           ))}
         </div>
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 };
