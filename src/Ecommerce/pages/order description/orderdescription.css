@@ -1,14 +1,131 @@
-.iconDiv{
+.main-summary {
+  max-width: 80%;
+  margin: auto;
+  color: #3d4656;
+}
+.iconDiv {
+  width: 100%;
+  /* background-color: #ededed; */
+  /* padding: 0.5rem; */
+  text-align: center;
+  
+}
+.iconDiv img{
     width: 100%;
-    background-color: #ededed;
-    padding: 0.5rem;
-    text-align: center;
+    height: 220px;
 }
-.summary-basicDetails{
-    display: flex;
-    justify-content: space-around;
+.summary-greetings {
+  padding-left: 1rem;
+  border-bottom: 2px solid lightgrey;
 }
-.summary-basicDetails div{
-    display: flex;
-    flex-direction: column;
+.summary-greetings p {
+  margin: 0;
+  margin-bottom: 0.8rem;
+}
+.summary-basicDetails {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  padding-left: 1rem;
+  border-bottom: 2px solid lightgrey;
+}
+.summary-basicDetails h3 {
+  font-weight: 500;
+  font-size: 1.3rem;
+  text-decoration: underline;
+  text-decoration-color: grey;
+}
+.summary-basicDetails p {
+  margin: 0;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+.summary-basicDetails div {
+  display: flex;
+  flex-direction: column;
+}
+.summary-products {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.summary-product {
+  display: flex;
+  margin: 3px 0;
+  padding: 0.6rem;
+  height: 80px;
+  border-bottom: 2px solid lightgrey;
+  justify-content: space-between;
+}
+.summary-product img {
+  align-self: center;
+  width: 60px;
+  height: 75px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}
+.summary-product-left {
+  display: flex;
+  gap: 3rem;
+  width: fit-content;
+  margin: 0rem 1rem;
+  min-width: 15rem;
+}
+.summary-product-left h3 {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+.summary-product-right {
+  display: flex;
+  justify-content: space-between;
+  gap: 30%;
+  width: 40%;
+  align-self: center;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.summary-product-name {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.billing-details {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  padding-left: 1.3rem;
+  margin: auto;
+  border-bottom: 2px solid lightgrey;
+}
+.billing-details p {
+  margin: 9px;
+}
+.billing-details div {
+  display: flex;
+  font-weight: 500;
+  font-size: 1.1rem;
+  justify-content: space-between;
+}
+
+.thank-para,
+.last-greet {
+  padding: 5px;
+  padding-left: 1rem;
+  line-height: 1.5;
+}
+.thank-para,
+.last-greet p {
+  margin: 0;
+}
+
+.last-greet p {
+  margin: 6px 0px;
+}
+.thank {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0;
 }
