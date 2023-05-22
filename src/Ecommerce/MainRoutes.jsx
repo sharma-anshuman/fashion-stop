@@ -53,22 +53,22 @@ const MainRoutes = () => {
           <Route path="addresses" element={<Addresses />} />
           <Route path="myorders" element={<OrderHistory />} />
         </Route>
-          <Route
-            path="checkout"
-            element={
-              <RequiresAuth>
-                <Checkout />
-              </RequiresAuth>
-            }
-          />
-           <Route
-            path="order-description"
-            element={
-              <RequiresAuth>
-                <OrderDescription />
-              </RequiresAuth>
-            }
-          />
+        <Route
+          path="checkout"
+          element={
+            <RequiresAuth>
+              <Checkout />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="order-description"
+          element={
+            <RequiresAuth>
+              <OrderDescription />
+            </RequiresAuth>
+          }
+        />
       </Routes>
     </React.Fragment>
   );

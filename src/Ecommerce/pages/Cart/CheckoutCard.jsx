@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { UseData } from "../../contexts/DataContext";
 import "./checkoutCard.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 const CheckoutCard = ({ dispCart }) => {
-  const { data, cart, PlaceOrderHandler } = UseData();
+  const { data, cart, PlaceOrderHandler, setCartPrice } = UseData();
   const navigate = useNavigate();
   const sum = dispCart.reduce(
     (acc, { id, priceAfterDiscount: p }) => acc + cart[id] * p,
     0
   );
+  useEffect(() => {
+    setCartPrice(sum);
+  }, []);
   const loc = useLocation().pathname.slice(1);
   return (
     <div className="checkout">

@@ -1,0 +1,14 @@
+.iconDiv{
+    width: 100%;
+    background-color: #ededed;
+    padding: 0.5rem;
+    text-align: center;
+}
+.summary-basicDetails{
+    display: flex;
+    justify-content: space-around;
+}
+.summary-basicDetails div{
+    display: flex;
+    flex-direction: column;
+}
