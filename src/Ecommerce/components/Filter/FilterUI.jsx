@@ -27,6 +27,7 @@ const FilterUI = () => {
             type="range"
             min={100}
             max={3000}
+            value={filters.price}
           />
         </div>
 
