@@ -22,13 +22,27 @@ const DataContext = ({ children }) => {
   const [firstName, setFirstname] = useState("");
   const [lastName, setLastname] = useState("");
   const [currOrder, setCurrOrder] = useState({});
-
   const [currAddress, setCurrAddress] = useState("");
   const [cartPrice, setCartPrice] = useState(0);
   const [cart, setCart] = useState({});
   const [wishlist, setWishlist] = useState([]);
   const [addresses, setAddresses] = useState([]);
   const { currUser } = UseSignupContext();
+
+
+  useEffect(() => {
+    if(!currUser?.uid){
+      setUserData(null);
+      setFirstname("");
+      setLastname("");
+      setCurrOrder({});
+      setCurrAddress("");
+      setCartPrice(0);
+      setCart({});
+      setWishlist([]);
+      setAddresses([]);
+    }
+  }, [currUser]);
 
   const userCollectionRef = collection(db, "clothingData");
   const getData = async () => {
@@ -240,6 +254,7 @@ const DataContext = ({ children }) => {
         });
         setCurrOrder({...currentOrder});
         setCart({});
+        setCurrAddress("");
         ToastHandler("success", "Payment succesfull");
         navigate("/order-description");
       },

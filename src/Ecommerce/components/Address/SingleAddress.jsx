@@ -8,7 +8,7 @@ const SingleAddress = ({ item }) => {
   const { address, city, contact, name, pincode, state, id } = item;
   const addressHandler = () => {
     setAddresses([...addresses.filter(({ id: i }) => i != id)]);
-    if (currAddress === id) setCurrAddress(null);
+    if (currAddress === id) setCurrAddress("");
   };
   const getAddress = () => {
     return `${address}, ${city}, ${state}, Pin: ${pincode}`;

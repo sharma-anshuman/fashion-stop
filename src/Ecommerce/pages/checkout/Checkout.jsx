@@ -8,10 +8,10 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 const Checkout = () => {
-  const { data, cart } = UseData();
+  const { data, cart, userData, firstName } = UseData();
   const navigate = useNavigate();
   const dispCart = data?.filter(({ id: i }) => cart[i]);
-  if(dispCart.length === 0) navigate("/cart");
+  if(!firstName.length) navigate("/cart");
   return (
     <div>
       <Navbar />

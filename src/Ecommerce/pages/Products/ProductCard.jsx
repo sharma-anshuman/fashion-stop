@@ -45,7 +45,7 @@ const ProductCard = ({ item }) => {
           <div
             onClick={() => WishlistHandler(id, "add")}
             className={`heart ${
-              wishlist.includes(id) && currId ? "activeHeart" : ""
+              wishlist?.includes(id) && currId ? "activeHeart" : ""
             }`}
           >
             <FontAwesomeIcon icon={faHeart} />

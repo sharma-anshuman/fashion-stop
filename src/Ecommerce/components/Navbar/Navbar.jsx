@@ -23,7 +23,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { dispatchFilter } = UseFilters();
   const { userData, firstName, cart, wishlist } = UseData();
-  console.log("Here in the navbar!!!!!!!", Object.keys(cart).length, wishlist.length)
+  console.log("Here in the navbar!!!!!!!", Object.keys(cart).length, wishlist.length, Object.values(cart))
   return (
     <nav>
       <div className="nav-left">
