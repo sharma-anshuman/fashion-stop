@@ -7,6 +7,8 @@ import { ToastContainer } from "react-toastify";
 const SignupPage = () => {
   const { MainSignupComponent, currUser } = UseSignupContext();
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location)
   useEffect(() => {
     if (currUser?.email) navigate("/products");
   }, [currUser]);

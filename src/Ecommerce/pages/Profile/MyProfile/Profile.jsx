@@ -19,28 +19,25 @@ const Profile = () => {
   const navigate = useNavigate();
   const { currUser, logOut } = UseSignupContext();
   const { firstName, lastName } = UseData();
-  useEffect(() => {
-    if (!currUser?.email) navigate("/login");
-  }, [currUser]);
-
+  
   return (
     <React.Fragment>
       <div className="profile-main">
       <Navbar />
-      <div class="container">
-        <div class="cover-photo">
+      <div className="container">
+        <div className="cover-photo">
           <img
             src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
             className="profile"
           />
         </div>
         <div class="profile-name">{firstName + " " + lastName}</div>
-        <p class="about">Welcome to FashionStop!!</p>
+        <p className="about">Welcome to FashionStop!!</p>
         <button
           onClick={() => {
             logOut();
           }}
-          class="logout-btn"
+          className="logout-btn"
         >
           Logout
         </button>

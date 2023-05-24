@@ -9,7 +9,10 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
-    if (currUser?.email) navigate(location?.state?.from?.pathname);
+    if (currUser?.email){
+      if(location?.state?.from?.pathname) navigate(location?.state?.from?.pathname);
+      else navigate('/profile')
+    }
   }, [currUser]);
 
   return (
