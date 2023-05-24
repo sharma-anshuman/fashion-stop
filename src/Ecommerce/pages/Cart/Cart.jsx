@@ -5,6 +5,7 @@ import { UseData } from "../../contexts/DataContext";
 import ProductCard from "../Products/ProductCard";
 import CartCard from "./CartCard";
 import CheckoutCard from "./CheckoutCard";
+import { ToastContainer } from "react-toastify";
 
 const Cart = () => {
   const { data, cart, CartHandler } = UseData();
@@ -30,6 +31,7 @@ const Cart = () => {
           </div>
         )}
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 };

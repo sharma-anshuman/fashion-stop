@@ -30,7 +30,7 @@ const CheckoutCard = ({ dispCart }) => {
             </p>
           </div>
         ))}
-        {loc === "checkout" && (
+        {/* {loc === "checkout" && ( */}
           <div>
             <div className="checkout-price">
               <p className="priceCheckout">Discount</p>
@@ -41,7 +41,7 @@ const CheckoutCard = ({ dispCart }) => {
               <p className="priceCheckout">&#8377;100</p>
             </div>
           </div>
-        )}
+        {/* )} */}
       </div>
       <hr />
       <div className="totalPriceMain">

@@ -49,15 +49,15 @@ const CartCard = ({ item, quantity }) => {
         {loc === "cart" && (
           <div className="cartCard-qty">
             Quantity:
-            <button onClick={() => CartHandler(id, "add")} className="qty-btn">
-              +
-            </button>
-            <div className="qty">{cart[id]}</div>
             <button
               onClick={() => CartHandler(id, "remove")}
               className="qty-btn"
             >
               –
+            </button>
+            <div className="qty">{cart[id]}</div>
+            <button onClick={() => CartHandler(id, "add")} className="qty-btn">
+              +
             </button>
           </div>
         )}
@@ -78,7 +78,7 @@ const CartCard = ({ item, quantity }) => {
               {inWish ? "In The Wishlist" : "Move To Wishlist"}
             </button>
           )}
-          {loc == "wishlist" && (
+          {loc === "wishlist" && (
             <button onClick={() => WishlistHandler(id, "moveToCart")}>
               Move To Cart
             </button>

@@ -11,7 +11,7 @@ const Checkout = () => {
   const { data, cart, userData, firstName } = UseData();
   const navigate = useNavigate();
   const dispCart = data?.filter(({ id: i }) => cart[i]);
-  if(!firstName.length) navigate("/cart");
+  if(!firstName.length || !Object.keys(cart).length) navigate("/cart");
   return (
     <div>
       <Navbar />

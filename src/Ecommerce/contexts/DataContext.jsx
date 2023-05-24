@@ -29,9 +29,8 @@ const DataContext = ({ children }) => {
   const [addresses, setAddresses] = useState([]);
   const { currUser } = UseSignupContext();
 
-
   useEffect(() => {
-    if(!currUser?.uid){
+    if (!currUser?.uid) {
       setUserData(null);
       setFirstname("");
       setLastname("");
@@ -60,12 +59,8 @@ const DataContext = ({ children }) => {
   const getUserDetails = async () => {
     if (currUser?.uid !== undefined) {
       const docSnap = await getDoc(doc(db, "users", currUser?.uid));
-      console.log("docSnap in DataContext.jsx", docSnap);
+
       if (docSnap.exists()) {
-        console.log(
-          "Document data is here in DataContext.jsx:",
-          docSnap.data()
-        );
         setUserData(docSnap.data());
         setFirstname(docSnap.data().firstName);
         setLastname(docSnap.data().lastName);
@@ -77,7 +72,6 @@ const DataContext = ({ children }) => {
       }
     } else {
       setUserData(null);
-      console.log("it's in else in DataContext.jsx");
     }
   };
 
@@ -89,7 +83,7 @@ const DataContext = ({ children }) => {
     if (currUser?.uid) {
       if (type === "add" && !cart[id]) {
         setCart({ ...cart, [id]: 1 });
-        ToastHandler("success", "Added to Cart");
+        ToastHandler("success", "Product Added to Cart");
       } else if (type === "add" && cart[id]) {
         setCart({ ...cart, [id]: cart[id] + 1 });
       } else if (
@@ -104,12 +98,13 @@ const DataContext = ({ children }) => {
             return acc;
           }, {});
         setCart({ ...tempCart });
-        if (type !== "moveToWish") ToastHandler("success", "Item Deleted");
+        if (type !== "moveToWish")
+          ToastHandler("success", "Product Removed from Cart");
         if (type === "moveToWish") {
           if (!wishlist.includes(id)) {
             setWishlist([...wishlist, id]);
           }
-          ToastHandler("success", "Moved to Wishlist");
+          ToastHandler("success", "Product Moved to Wishlist");
         }
       } else if (type === "remove" && cart[id] > 1) {
         setCart({ ...cart, [id]: cart[id] - 1 });
@@ -137,21 +132,22 @@ const DataContext = ({ children }) => {
       if (type === "add") {
         if (!wishlist.includes(id)) {
           setWishlist([...wishlist, id]);
-          ToastHandler("success", "Added to Wishlist");
+          ToastHandler("success", "Product Added to Wishlist");
         } else {
           setWishlist([...tempWish]);
-          ToastHandler("success", "Removed From Wishlist");
+          ToastHandler("success", "Product Removed From Wishlist");
         }
       } else if (type === "moveToCart" && !cart[id]) {
         setCart({ ...cart, [id]: 1 });
         setWishlist([...tempWish]);
-        ToastHandler("success", "Moved to Cart");
+        ToastHandler("success", "Product Moved to Cart");
       } else if (type === "delete" || (type === "moveToCart" && cart[id])) {
         setCart({ ...cart, [id]: cart[id] + 1 });
         setWishlist([...tempWish]);
-        if (type === "moveToCart") ToastHandler("success", "Moved to Cart");
+        if (type === "moveToCart")
+          ToastHandler("success", "Product Moved to Cart");
         else if (type === "delete")
-          ToastHandler("success", "Removed from Wishlist");
+          ToastHandler("success", "Product Removed from Wishlist");
       }
     } else {
       ToastHandler("error", "Login to add as favourite");
@@ -159,7 +155,7 @@ const DataContext = ({ children }) => {
   };
 
   useEffect(() => {
-    UpdateDBcart();
+    UpdateDBwishlist();
   }, [wishlist]);
 
   const UpdateDBwishlist = async () => {
@@ -183,15 +179,10 @@ const DataContext = ({ children }) => {
     temp();
   }, [addresses]);
 
-
-
-
-
-
-/*******************************************PAYMENT GATEWAY *******************************************/
+  /*******************************************PAYMENT GATEWAY *******************************************/
   const loadScript = async (url) => {
     return new Promise((resolve) => {
-      const script = document.createElement('script');
+      const script = document.createElement("script");
       script.src = url;
 
       script.onload = () => {
@@ -213,7 +204,10 @@ const DataContext = ({ children }) => {
 
     if (!res) {
       // Notify("Razorpay SDK failed to load, check you connection", "error");
-      ToastHandler('error', "Razorpay SDK failed to load, check you connection");
+      ToastHandler(
+        "error",
+        "Razorpay SDK failed to load, check you connection"
+      );
 
       return;
     }
@@ -252,7 +246,7 @@ const DataContext = ({ children }) => {
         await updateDoc(userDataRef, {
           orderHistory: arrayUnion(currentOrder),
         });
-        setCurrOrder({...currentOrder});
+        setCurrOrder({ ...currentOrder });
         setCart({});
         setCurrAddress("");
         ToastHandler("success", "Payment succesfull");
@@ -270,22 +264,16 @@ const DataContext = ({ children }) => {
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
-/*******************************************PAYMENT GATEWAY *******************************************/
-
-
-
-
+  /*******************************************PAYMENT GATEWAY *******************************************/
 
   const navigate = useNavigate();
 
   const PlaceOrderHandler = () => {
-    console.log("its here in handler", currAddress?.length, cart);
     if (addresses?.length === 0)
       ToastHandler("error", "Add an address to continue");
     else if (currAddress?.length === 0)
       ToastHandler("error", "Select an address");
     if (currAddress?.length > 0 && Object.keys(cart)?.length > 0) {
-      console.log("here in the condition");
       displayRazorpay();
     }
   };
@@ -305,7 +293,7 @@ const DataContext = ({ children }) => {
     PlaceOrderHandler,
     setCartPrice,
     currOrder,
-    lastName
+    lastName,
   };
   return <MainData.Provider value={elements}>{children}</MainData.Provider>;
 };
