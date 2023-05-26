@@ -28,10 +28,11 @@ const WishlistContext = ({ children }) => {
         setWishlist([...tempWish]);
         ToastHandler("success", "Product Moved to Cart");
       } else if (type === "delete" || (type === "moveToCart" && cart[id])) {
-        setCart({ ...cart, [id]: cart[id] + 1 });
         setWishlist([...tempWish]);
-        if (type === "moveToCart")
+        if (type === "moveToCart"){
+          setCart({ ...cart, [id]: cart[id] + 1 });
           ToastHandler("success", "Product Moved to Cart");
+        }
         else if (type === "delete")
           ToastHandler("success", "Product Removed from Wishlist");
       }
