@@ -18,6 +18,7 @@ const SingleAddress = ({ item }) => {
       <input
         onClick={() => setCurrAddress(id)}
         checked={currAddress === id}
+        onChange={e => {}}
         type="radio"
       />
       <div className="mainAdd">
