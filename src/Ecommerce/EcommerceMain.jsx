@@ -6,6 +6,7 @@ import Pagination from "./pagination/Pagination";
 import FilterContext from "./contexts/FilterContext";
 import SignUpContext from "./contexts/Signup/Signup";
 import CartContext from "./contexts/CartContext";
+import WishlistContext from "./contexts/WishlistContext";
 
 const EcommerceMain = () => {
   return (
@@ -14,11 +15,13 @@ const EcommerceMain = () => {
         <SignUpContext>
           <DataContext>
             <CartContext>
-              <FilterContext>
-                <Pagination>
-                  <MainRoutes />
-                </Pagination>
-              </FilterContext>
+              <WishlistContext>
+                <FilterContext>
+                  <Pagination>
+                    <MainRoutes />
+                  </Pagination>
+                </FilterContext>
+              </WishlistContext>
             </CartContext>
           </DataContext>
         </SignUpContext>

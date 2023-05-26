@@ -6,6 +6,7 @@ import { faHeart as love } from "@fortawesome/free-solid-svg-icons";
 import { UseData } from "../../contexts/DataContext";
 import { useLocation } from "react-router-dom";
 import { UseCartContext } from "../../contexts/CartContext";
+import { UseWishlistContext } from "../../contexts/WishlistContext";
 
 const CartCard = ({ item, quantity }) => {
   const {
@@ -23,8 +24,9 @@ const CartCard = ({ item, quantity }) => {
     reviewCount,
     deliveryTime,
   } = item;
-  const { cart, wishlist, WishlistHandler } = UseData();
+  const { cart, wishlist } = UseData();
   const {CartHandler} = UseCartContext();
+  const {WishlistHandler} = UseWishlistContext();
   const inCart = cart[id] >= 0,
     inWish = wishlist.includes(id),
     loc = useLocation().pathname.slice(1);
