@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../../../firebase-config";
 import { UseSignupContext } from "../../contexts/Signup/Signup";
 import { UseData } from "../../contexts/DataContext";
+import { UseCartContext } from "../../contexts/CartContext";
 
 const ProductCard = ({ item }) => {
   const {
@@ -29,7 +30,8 @@ const ProductCard = ({ item }) => {
   } = item;
   const { currUser } = UseSignupContext();
   const currId = currUser?.uid;
-  const { CartHandler, cart, wishlist, WishlistHandler } = UseData();
+  const { cart, wishlist, WishlistHandler } = UseData();
+  const {CartHandler} = UseCartContext();
   const navigate = useNavigate();
   return (
     <React.Fragment key={id}>
