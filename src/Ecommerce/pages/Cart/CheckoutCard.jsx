@@ -3,9 +3,12 @@ import { UseData } from "../../contexts/DataContext";
 import "./checkoutCard.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { UsePayments } from "../../contexts/PaymentGatewayContext";
 
 const CheckoutCard = ({ dispCart }) => {
   const { data, cart, PlaceOrderHandler, setCartPrice } = UseData();
+  const {MakePayment} = UsePayments();
+  
   const navigate = useNavigate();
   const sum = dispCart.reduce(
     (acc, { id, priceAfterDiscount: p }) => acc + cart[id] * p,
@@ -51,7 +54,7 @@ const CheckoutCard = ({ dispCart }) => {
       <div>
         <button
           onClick={
-            () => (loc == "cart" ? navigate("/checkout") : PlaceOrderHandler()) //navigate("/order-description")
+            () => (loc == "cart" ? navigate("/checkout") : PlaceOrderHandler(MakePayment)) //navigate("/order-description")
           }
           className="checkout-btn"
         >
