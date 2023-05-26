@@ -23,7 +23,7 @@ const Cart = () => {
           <div className="cart-main">
             <div className="cartProducts">
               {dispCart.map((item) => (
-                <CartCard item={item} quantity={cart[item.id]} />
+                <CartCard key={item.id} item={item} quantity={cart[item.id]} />
               ))}
             </div>
             <div className="checkoutCard">

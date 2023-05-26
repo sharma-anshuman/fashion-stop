@@ -31,7 +31,7 @@ const Profile = () => {
             className="profile"
           />
         </div>
-        <div class="profile-name">{firstName + " " + lastName}</div>
+        <div className="profile-name">{firstName + " " + lastName}</div>
         <p className="about">Welcome to FashionStop!!</p>
         <button
           onClick={() => {

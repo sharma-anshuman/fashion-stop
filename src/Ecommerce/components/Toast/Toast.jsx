@@ -3,7 +3,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const ToastHandler = (type, message) => {
-    console.log("here in the message")
   if (type === "error") {
     toast.error(message, {
       position: "bottom-right",

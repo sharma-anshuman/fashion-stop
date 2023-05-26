@@ -23,7 +23,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { dispatchFilter } = UseFilters();
   const { userData, firstName, cart, wishlist } = UseData();
-  console.log("Here in the navbar!!!!!!!",cart, Object.keys(cart).length, wishlist.length, Object.values(cart))
   return (
     <nav>
       <div className="nav-left">
@@ -56,7 +55,6 @@ const Navbar = () => {
         <button className="nav-icon" onClick={() => navigate("/profile")}>
           <FontAwesomeIcon icon={faUser} />
         </button>
-        {/* <h1 style={{margin: 0, display: "inline"}}>Hello</h1> */}
       </div>
     </nav>
   );

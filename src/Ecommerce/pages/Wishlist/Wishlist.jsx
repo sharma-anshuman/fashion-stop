@@ -16,7 +16,7 @@ const Wishlist = () => {
         {dispWishlist.length === 0 && <h3>Your Wishlist is empty</h3>}
         <div className="wishlistProducts">
           {dispWishlist.map((item) => (
-            <CartCard item={item} />
+            <CartCard key={item.id} item={item} />
           ))}
         </div>
       </div>

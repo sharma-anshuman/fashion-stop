@@ -66,7 +66,6 @@ const DataContext = ({ children }) => {
         setWishlist([...docSnap.data().wishlist]);
         setAddresses([...docSnap.data().addresses]);
       } else {
-        console.log("No such document! in DataContext.jsx");
       }
     } else {
       setUserData(null);
