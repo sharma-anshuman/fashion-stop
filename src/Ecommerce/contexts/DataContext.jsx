@@ -79,52 +79,6 @@ const DataContext = ({ children }) => {
     getUserDetails();
   }, [currUser]);
 
-  const CartHandler = async (id, type) => {
-    if (currUser?.uid) {
-      if (type === "add" && !cart[id]) {
-        setCart({ ...cart, [id]: 1 });
-        ToastHandler("success", "Product Added to Cart");
-      } else if (type === "add" && cart[id]) {
-        setCart({ ...cart, [id]: cart[id] + 1 });
-      } else if (
-        (type === "remove" && cart[id] === 1) ||
-        type === "delete" ||
-        type === "moveToWish"
-      ) {
-        const tempCart = Object.keys(cart)
-          .filter((key) => key != id)
-          .reduce((acc, key) => {
-            acc[key] = cart[key];
-            return acc;
-          }, {});
-        setCart({ ...tempCart });
-        if (type !== "moveToWish")
-          ToastHandler("success", "Product Removed from Cart");
-        if (type === "moveToWish") {
-          if (!wishlist.includes(id)) {
-            setWishlist([...wishlist, id]);
-          }
-          ToastHandler("success", "Product Moved to Wishlist");
-        }
-      } else if (type === "remove" && cart[id] > 1) {
-        setCart({ ...cart, [id]: cart[id] - 1 });
-      }
-    } else {
-      ToastHandler("error", "Login to add to Cart");
-    }
-  };
-
-  const UpdateDBcart = async () => {
-    if (currUser?.uid) {
-      const userDataRef = doc(db, "users", currUser?.uid);
-      await updateDoc(userDataRef, {
-        cart: cart,
-      });
-    }
-  };
-  useEffect(() => {
-    UpdateDBcart();
-  }, [cart]);
 
   const WishlistHandler = async (id, type) => {
     if (currUser?.uid) {
@@ -281,9 +235,10 @@ const DataContext = ({ children }) => {
   const elements = {
     data,
     userData,
-    CartHandler,
     firstName,
     cart,
+    setCart,
+    setWishlist,
     wishlist,
     WishlistHandler,
     addresses,

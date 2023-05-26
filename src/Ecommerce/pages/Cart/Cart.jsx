@@ -6,9 +6,11 @@ import ProductCard from "../Products/ProductCard";
 import CartCard from "./CartCard";
 import CheckoutCard from "./CheckoutCard";
 import { ToastContainer } from "react-toastify";
+import { UseCartContext } from "../../contexts/CartContext";
 
 const Cart = () => {
-  const { data, cart, CartHandler } = UseData();
+  const { data, cart } = UseData();
+  const {CartHandler} = UseCartContext();
   const dispCart = data?.filter(({ id: i }) => cart[i]);
 
   return (
