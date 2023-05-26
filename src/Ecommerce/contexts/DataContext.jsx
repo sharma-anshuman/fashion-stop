@@ -1,15 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { db, auth } from "../../firebase-config";
-import {
-  collection,
-  getDoc,
-  doc,
-  getDocs,
-  setDoc,
-  arrayUnion,
-  arrayRemove,
-  updateDoc,
-} from "firebase/firestore";
+import { collection, getDoc, doc, getDocs, arrayUnion, updateDoc } from "firebase/firestore";
 import { UseSignupContext } from "./Signup/Signup";
 import { useNavigate } from "react-router-dom";
 import { ToastHandler } from "../components/Toast/Toast";
@@ -90,6 +81,7 @@ const DataContext = ({ children }) => {
     };
     temp();
   }, [addresses]);
+  
 
   /*******************************************PAYMENT GATEWAY *******************************************/
   const loadScript = async (url) => {
