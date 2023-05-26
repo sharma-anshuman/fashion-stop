@@ -7,6 +7,7 @@ import FilterContext from "./contexts/FilterContext";
 import SignUpContext from "./contexts/Signup/Signup";
 import CartContext from "./contexts/CartContext";
 import WishlistContext from "./contexts/WishlistContext";
+import PaymentGatewayContext from "./contexts/PaymentGatewayContext";
 
 const EcommerceMain = () => {
   return (
@@ -14,15 +15,17 @@ const EcommerceMain = () => {
       <BrowserRouter>
         <SignUpContext>
           <DataContext>
-            <CartContext>
-              <WishlistContext>
-                <FilterContext>
-                  <Pagination>
-                    <MainRoutes />
-                  </Pagination>
-                </FilterContext>
-              </WishlistContext>
-            </CartContext>
+            <PaymentGatewayContext>
+              <CartContext>
+                <WishlistContext>
+                  <FilterContext>
+                    <Pagination>
+                      <MainRoutes />
+                    </Pagination>
+                  </FilterContext>
+                </WishlistContext>
+              </CartContext>
+            </PaymentGatewayContext>
           </DataContext>
         </SignUpContext>
       </BrowserRouter>
