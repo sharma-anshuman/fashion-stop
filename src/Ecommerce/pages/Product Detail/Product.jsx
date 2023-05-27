@@ -6,10 +6,15 @@ import ProductCard from "../Products/ProductCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown, faCartFlatbed, faCartFlatbedSuitcase, faCartPlus, faCartShopping, faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar/Navbar";
+import { UseCartContext } from "../../contexts/CartContext";
+import { UseWishlistContext } from "../../contexts/WishlistContext";
+import { ToastContainer } from "react-toastify";
 
 const Product = () => {
   const { ID } = useParams();
-  const { data, CartHandler, cart, wishlist, WishlistHandler } = UseData();
+  const { data, cart, wishlist } = UseData();
+  const {CartHandler} = UseCartContext();
+  const {WishlistHandler} = UseWishlistContext();
   const product = data.find(({ id }) => id == ID);
   const navigate = useNavigate();
   const {
@@ -96,6 +101,7 @@ const Product = () => {
           </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
