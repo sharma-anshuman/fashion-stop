@@ -23,6 +23,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { dispatchFilter } = UseFilters();
   const { userData, firstName, cart, wishlist } = UseData();
+  const [searchValue, setSearch] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatchFilter({ type: "search", value: searchValue })
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [searchValue]);
+
   return (
     <nav>
       <div className="nav-left">
@@ -33,7 +44,7 @@ const Navbar = () => {
       <div className="nav-mid">
         <input
           onChange={(event) =>
-            dispatchFilter({ type: "search", value: event.target.value })
+            setSearch(event.target.value)
           }
           type="text"
           placeholder="Search"
