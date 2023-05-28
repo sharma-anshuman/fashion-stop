@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
-import { v4 as uuidv4 } from 'uuid';
+import { faker } from "@faker-js/faker";
+import { v4 as uuidv4 } from "uuid";
 import "./modal.css";
 import { UseData } from "../../contexts/DataContext";
 const states = [
@@ -49,6 +50,14 @@ const Modal = (props) => {
   };
 
   const { addresses, setAddresses } = UseData();
+  const  [currAddress, setCurr ] = useState({
+    address: "",
+    city: "",
+    contact: "",
+    name: "",
+    pincode: "",
+    state: "",
+  });
 
   useEffect(() => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
@@ -58,16 +67,50 @@ const Modal = (props) => {
   }, []);
 
   const submitHandler = (event) => {
-    const obj = {
-      address: event.target.address.value,
-      city: event.target.city.value,
-      contact: event.target.tele.value,
-      name: event.target.name.value,
-      pincode: event.target.pin.value,
-      state: event.target.state.value,
-      id: uuidv4()
-    };
-    setAddresses([...addresses, obj]);
+    // const obj = {
+    //   address: event.target.address.value,
+    //   city: event.target.city.value,
+    //   contact: event.target.tele.value,
+    //   name: event.target.name.value,
+    //   pincode: event.target.pin.value,
+    //   state: event.target.state.value,
+    //   id: uuidv4(),
+    // };
+    const tempAdd = {...currAddress, id: uuidv4()}
+    setAddresses([...addresses, tempAdd]);
+    event.preventDefault();
+    setCurr({
+      address: "",
+      city: "",
+      contact: "",
+      name: "",
+      pincode: "",
+      state: "",
+    });
+    props.onClose();
+  };
+
+  const resetHandler = () => {
+    setCurr({
+      address: "",
+      city: "",
+      contact: "",
+      name: "",
+      pincode: "",
+      state: "",
+    });
+  }
+
+  const getRandomAddress = async () => {
+    const tempAdd = {
+      address: faker.location.streetAddress(),
+      city: faker.location.city(),
+      contact: faker.phone.number('+91##########'), // '501-039-84,
+      name: faker.person.fullName(),
+      pincode: faker.location.zipCode('######'),
+      state: states[Math.floor(Math.random() * (states.length - 1))],
+    }
+    setCurr(tempAdd)
   };
 
   return ReactDOM.createPortal(
@@ -85,40 +128,50 @@ const Modal = (props) => {
             <form onSubmit={submitHandler} id="myForm" className="address-form">
               <input
                 name="name"
+                value={currAddress?.name}
                 className="name"
                 placeholder="Name"
                 maxLength="25"
                 type="text"
+                onChange={(event) => setCurr({...currAddress, name: event.target.value})}
                 required
               />
               <input
                 name="tele"
+                value={currAddress?.contact}
                 className="tel"
                 placeholder="Mobile No."
                 maxLength="10"
                 type="tel"
+                onChange={(event) => setCurr({...currAddress, contact: event.target.value})}
                 required
               />
               <input
                 name="pin"
+                value={currAddress?.pincode}
                 className="pincode"
                 placeholder="Pincode"
                 maxLength="6"
                 type="number"
+                onChange={(event) => setCurr({...currAddress, pincode: event.target.value})}
                 required
               />
               <input
                 name="city"
+                value={currAddress?.city}
                 className="city"
                 placeholder="City"
                 type=""
+                onChange={(event) => setCurr({...currAddress, city: event.target.value})}
                 required
               />
               <textarea
                 name="address"
+                value={currAddress?.address}
                 className="address-text"
                 placeholder="Address"
                 type=""
+                onChange={(event) => setCurr({...currAddress, address: event.target.value})}
                 required
               />
               <input
@@ -130,12 +183,16 @@ const Modal = (props) => {
               />
               <select
                 className="state-select"
+                value={currAddress?.state}
                 placeholder="State"
                 name="state"
+                onChange={(event) => setCurr({...currAddress, state: event.target.value})}
                 required
               >
                 {states.map((state, idx) => (
-                  <option key={idx} value={state}>{state}</option>
+                  <option key={idx} value={state}>
+                    {state}
+                  </option>
                 ))}
               </select>
             </form>
@@ -144,8 +201,15 @@ const Modal = (props) => {
             <button onClick={props.onClose} className="button modal-btn">
               Close
             </button>
+            <button onClick={getRandomAddress} className="modal-btn">Random Address</button>
             <input className="modal-btn" type="submit" form="myForm" />
-            <input className="modal-btn" type="reset" form="myForm" value="Reset" />
+            <input
+              className="modal-btn"
+              type="reset"
+              form="myForm"
+              value="Reset"
+              onClick={resetHandler}
+            />
           </div>
         </div>
       </div>
