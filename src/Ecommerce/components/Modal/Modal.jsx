@@ -49,15 +49,17 @@ const Modal = (props) => {
     }
   };
 
-  const { addresses, setAddresses } = UseData();
-  const  [currAddress, setCurr ] = useState({
+  const initialAdd = {
     address: "",
     city: "",
     contact: "",
     name: "",
     pincode: "",
     state: "",
-  });
+  };
+
+  const { addresses, setAddresses } = UseData();
+  const  [currAddress, setCurr ] = useState({...initialAdd});
 
   useEffect(() => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
@@ -67,38 +69,15 @@ const Modal = (props) => {
   }, []);
 
   const submitHandler = (event) => {
-    // const obj = {
-    //   address: event.target.address.value,
-    //   city: event.target.city.value,
-    //   contact: event.target.tele.value,
-    //   name: event.target.name.value,
-    //   pincode: event.target.pin.value,
-    //   state: event.target.state.value,
-    //   id: uuidv4(),
-    // };
     const tempAdd = {...currAddress, id: uuidv4()}
     setAddresses([...addresses, tempAdd]);
     event.preventDefault();
-    setCurr({
-      address: "",
-      city: "",
-      contact: "",
-      name: "",
-      pincode: "",
-      state: "",
-    });
+    setCurr({...initialAdd});
     props.onClose();
   };
 
   const resetHandler = () => {
-    setCurr({
-      address: "",
-      city: "",
-      contact: "",
-      name: "",
-      pincode: "",
-      state: "",
-    });
+    setCurr({...initialAdd});
   }
 
   const getRandomAddress = async () => {
