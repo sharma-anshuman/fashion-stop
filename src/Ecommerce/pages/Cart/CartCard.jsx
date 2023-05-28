@@ -39,10 +39,10 @@ const CartCard = ({ item, quantity }) => {
       <div className="cartCard-right">
         <div className="cartRight-head">
           <h2 className="cartCard-heading">{productName}</h2>
-          <div onClick={() => WishlistHandler(id, "add")}>
+          {/* <div onClick={() => WishlistHandler(id, "add")}>
             {!inWish && <FontAwesomeIcon className="wishit" icon={faHeart} />}
             {inWish && <FontAwesomeIcon className="wishit-red" icon={love} />}
-          </div>
+          </div> */}
         </div>
         <h3 className="cartCard-price">
           &#8377;{priceAfterDiscount}{" "}
