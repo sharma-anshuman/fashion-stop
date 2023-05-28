@@ -11,12 +11,12 @@ import "./products.css";
 import { ToastContainer } from "react-toastify";
 
 const ProductsPage = () => {
-  const { paginateKaro, displayData, pageNumber } = UsePagination();
+  const { paginateKaro, displayData, pageNumber, NoDataMsg } = UsePagination();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [pageNumber]);
 
-  return !displayData.length ? (
+  return displayData === null ? (
     <Loader />
   ) : (
     <React.Fragment>
@@ -27,8 +27,9 @@ const ProductsPage = () => {
             <FilterUI />
           </div>
           <div className="main-products">
+            {displayData.length === 0 && <h1>{NoDataMsg}</h1>}
             <div className="products">{displayData}</div>
-            <div className="paginate-karo">{paginateKaro}</div>
+            {displayData.length!==0 && <div className="paginate-karo">{paginateKaro}</div>}
           </div>
         </div>
         <Footer />

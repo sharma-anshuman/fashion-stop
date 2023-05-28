@@ -86,7 +86,7 @@ const FilterContext = ({ children }) => {
 
   let dataAfterFilter = filterFunctions.reduce((acc, curr) => curr(acc), [...data]);
 
-  if(!dataAfterFilter.length) dataAfterFilter = data;
+  // if(!dataAfterFilter.length) dataAfterFilter = data;
 
   const elements = { filters, dispatchFilter, dataAfterFilter };
   return (
