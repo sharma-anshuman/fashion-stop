@@ -14,7 +14,7 @@ const Checkout = () => {
   if(!firstName.length || !Object.keys(cart).length) navigate("/cart");
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="mainCheckout">
         <Address />
         <CheckoutCard dispCart={dispCart} />

@@ -22,7 +22,7 @@ const Homepage = () => {
     <Loader />
   ) : (
     <React.Fragment>
-      <Navbar />
+      {/* <Navbar /> */}
       <img
         onClick={clickHandler}
         className="banner-img"

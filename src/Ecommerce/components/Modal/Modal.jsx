@@ -84,7 +84,7 @@ const Modal = (props) => {
     const tempAdd = {
       address: faker.location.streetAddress(),
       city: faker.location.city(),
-      contact: faker.phone.number('+91##########'), // '501-039-84,
+      contact: faker.phone.number('+91##########'),
       name: faker.person.fullName(),
       pincode: faker.location.zipCode('######'),
       state: states[Math.floor(Math.random() * (states.length - 1))],

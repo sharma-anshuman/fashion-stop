@@ -11,7 +11,7 @@ import {
   faHeart,
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { UseFilters } from "../../contexts/FilterContext";
 import { UseSignupContext } from "../../contexts/Signup/Signup";
 import { db } from "../../../firebase-config";
@@ -24,6 +24,8 @@ const Navbar = () => {
   const { dispatchFilter } = UseFilters();
   const { userData, firstName, cart, wishlist } = UseData();
   const [searchValue, setSearch] = useState("");
+  const location = useLocation().pathname;
+  console.log("locc", location);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,17 +40,17 @@ const Navbar = () => {
     <nav>
       <div className="nav-left">
         <h1 className="navLogo" onClick={() => navigate("/")}>
-          fashion stop
+          Fashion Stop
         </h1>
       </div>
       <div className="nav-mid">
-        <input
+       { location === '/products' && <input
           onChange={(event) =>
             setSearch(event.target.value)
           }
           type="text"
           placeholder="Search"
-        />
+        />}
       </div>
       <div className="nav-right">
         {userData !== null && (

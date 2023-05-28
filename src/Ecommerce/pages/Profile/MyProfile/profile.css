@@ -1,8 +1,11 @@
 
-  .profile-main{
+  /* .profile-main{
     background-color: whitesmoke;
-  }
+    margin: 0;
+    height: 100%;
+  } */
   .container{
+    background-color: whitesmoke;
     user-select: none;
     margin: 100px auto;
     background: #19A7CE;

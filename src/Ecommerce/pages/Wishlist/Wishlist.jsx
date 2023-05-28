@@ -11,7 +11,7 @@ const Wishlist = () => {
   return (
     <React.Fragment>
      <div className="cart">
-        <Navbar />
+        {/* <Navbar /> */}
         <h2>Wishlist ({dispWishlist.length})</h2>
         {dispWishlist.length === 0 && <h3>Your Wishlist is empty</h3>}
         <div className="wishlistProducts">

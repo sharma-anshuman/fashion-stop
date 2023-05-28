@@ -17,7 +17,7 @@ const LoginPage = () => {
 
   return (
     <React.Fragment>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="mainLogin">{MainLoginComponent}</div>
       <ToastContainer />
     </React.Fragment>

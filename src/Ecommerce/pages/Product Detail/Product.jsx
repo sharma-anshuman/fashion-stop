@@ -35,7 +35,7 @@ const Product = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="singleProduct">
         <div className="singleProduct-left">
           <img src={imageLink} alt="" />

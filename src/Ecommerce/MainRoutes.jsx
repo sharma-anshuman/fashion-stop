@@ -14,61 +14,65 @@ import LoginPage from "./pages/LoginSignup/LoginPage";
 import Checkout from "./pages/checkout/Checkout";
 import OrderDescription from "./pages/order description/OrderDescription";
 import { RequiresAuth } from "./components/RequiresAuth";
+import MainNavRoutes from "./MainNavRoutes";
 
 const MainRoutes = () => {
   return (
     <React.Fragment>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="products" element={<ProductsPage />} />
-        <Route path="product/:ID" element={<Product />} />
-        <Route
-          path="cart"
-          element={
-            <RequiresAuth>
-              <Cart />
-            </RequiresAuth>
-          }
-        />
-        <Route path="signup" element={<SignupPage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route
-          path="wishlist"
-          element={
-            <RequiresAuth>
-              <Wishlist />
-            </RequiresAuth>
-          }
-        />
-        <Route path="*" element={<Error />} />
-        <Route path="profile">
+        <Route path="/" element={<MainNavRoutes />}>
+          <Route path="" element={<Homepage />} />
+          <Route path="products" element={<ProductsPage />} />
+          <Route path="product/:ID" element={<Product />} />
+
           <Route
-            index={true}
+            path="cart"
             element={
               <RequiresAuth>
-                <Profile />
+                <Cart />
               </RequiresAuth>
             }
           />
-          <Route path="addresses" element={<Addresses />} />
-          <Route path="myorders" element={<OrderHistory />} />
+          <Route path="signup" element={<SignupPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route
+            path="wishlist"
+            element={
+              <RequiresAuth>
+                <Wishlist />
+              </RequiresAuth>
+            }
+          />
+          <Route path="profile">
+            <Route
+              index={true}
+              element={
+                <RequiresAuth>
+                  <Profile />
+                </RequiresAuth>
+              }
+            />
+          </Route>
+          <Route
+            path="checkout"
+            element={
+              <RequiresAuth>
+                <Checkout />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="order-description"
+            element={
+              <RequiresAuth>
+                <OrderDescription />
+              </RequiresAuth>
+            }
+          />
         </Route>
-        <Route
-          path="checkout"
-          element={
-            <RequiresAuth>
-              <Checkout />
-            </RequiresAuth>
-          }
-        />
-        <Route
-          path="order-description"
-          element={
-            <RequiresAuth>
-              <OrderDescription />
-            </RequiresAuth>
-          }
-        />
+        <Route path="addresses" element={<Addresses />} />
+        <Route path="myorders" element={<OrderHistory />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </React.Fragment>
   );

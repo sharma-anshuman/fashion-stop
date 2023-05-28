@@ -27,7 +27,7 @@ const OrderDescription = () => {
   return (
     <React.Fragment>
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="main-summary">
           <div className="iconDiv">
             <img src="https://static.vecteezy.com/system/resources/previews/015/285/052/non_2x/rural-nature-landscape-bird-flying-silhouette-over-hills-and-sky-background-animal-wildlife-mountain-skyline-resort-view-background-vector.jpg" />

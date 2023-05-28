@@ -22,8 +22,8 @@ const Profile = () => {
   
   return (
     <React.Fragment>
-      <div className="profile-main">
-      <Navbar />
+      {/* <div className="profile-main"> */}
+      {/* <Navbar /> */}
       <div className="container">
         <div className="cover-photo">
           <img
@@ -41,9 +41,9 @@ const Profile = () => {
         >
           Logout
         </button>
+      {/* </div> */}
       </div>
       <Footer />
-      </div>
       <ToastContainer />
     </React.Fragment>
   );
