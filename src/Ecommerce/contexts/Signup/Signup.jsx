@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import "../../pages/LoginSignup/loginpage.css";
 import "../../pages/LoginSignup/signuppage.css";
 import { ToastHandler } from "../../components/Toast/Toast";
+import './signupStyle.css'
 
 //
 import {
@@ -36,10 +37,10 @@ const SignUpContext = ({ children }) => {
         values.email,
         values.password
       );
-      ToastHandler('success', "Logged in!");
+      ToastHandler("success", "Logged in!");
     } catch (e) {
-      ToastHandler('error', e.message);
-      console.error(e, e.message);
+      if(currUser==={}) ToastHandler("error", e.message);
+      console.error("here's the error's message", e.message, e);
     }
   };
 
@@ -58,16 +59,23 @@ const SignUpContext = ({ children }) => {
         addresses: [],
         orderHistory: [],
       });
-      ToastHandler('success', "Profile Created!");
+      ToastHandler("success", "Profile Created!");
     } catch (e) {
-      ToastHandler('error', e.message);
+      ToastHandler("error", e.message);
       console.error(e, e.message);
     }
   };
 
   const logOut = async () => {
     await signOut(auth);
-    ToastHandler('success', "Logged Out!");
+    ToastHandler("success", "Logged Out!");
+  };
+
+  const loginAsGuest = () => {
+    alert(
+      "You're logging in as guest, preferences will be as per the last unauthorized user.\n\n i.e. don't expect the cart and wishlist to be empty!!"
+    );
+    logIn({ email: "guest@gmail.com", password: "abcd1234" });
   };
 
   // console.log("It's the signup context", auth?.currentUser);
@@ -133,7 +141,7 @@ const SignUpContext = ({ children }) => {
         password: "",
       }}
       onSubmit={(values) => {
-        // console.log("here is login");
+        // console.log("here is login", values);
         logIn(values);
       }}
     >
@@ -143,7 +151,11 @@ const SignUpContext = ({ children }) => {
           <Form className="loginForm">
             <TextField lable="Email" name="email" type="email" />
             <TextField lable="Password" name="password" type="password" />
+            <div className="login-buttons">
             <button type="submit">Login</button>
+            <button onClick={loginAsGuest}>Login as guest</button>
+
+            </div>
             <NavLink className="navlink" to="/signup">
               Don't have an account
             </NavLink>

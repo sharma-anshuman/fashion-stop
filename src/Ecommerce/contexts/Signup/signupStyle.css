@@ -1,0 +1,15 @@
+.login-buttons{
+    display: flex;
+    margin: auto;
+    gap: 1rem;
+}
+
+.login-buttons button{
+    background-color: #19A7CE;
+    color: white;
+    font-weight: 600;
+}
+.login-buttons button:hover{
+    cursor: pointer;
+    background-color: #146C94;
+}
