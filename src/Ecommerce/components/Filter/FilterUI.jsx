@@ -15,20 +15,31 @@ const FilterUI = () => {
       <div className="filterMain">
         <div className="filter-head">
           <h3>Filters</h3>
-          <button onClick={() => dispatchFilter({type: "reset"})} className="filter-clear">Clear</button>
+          <button
+            onClick={() => dispatchFilter({ type: "reset" })}
+            className="filter-clear"
+          >
+            Clear
+          </button>
         </div>
 
         <div className="filter filter-price">
-          <h3>Price</h3>
-          <input
-            onChange={({ target: { value: v } }) =>
-              dispatchFilter({ type: "price", value: v })
-            }
-            type="range"
-            min={100}
-            max={3000}
-            value={filters.price}
-          />
+          <div class="tooltip">
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <h3>Price</h3>
+            <span className="tooltiptext">{filters.price}</span>
+          </div>
+            <input
+              onChange={({ target: { value: v } }) =>
+                dispatchFilter({ type: "price", value: v })
+              }
+              type="range"
+              min={100}
+              max={3000}
+              className="price-slider"
+              value={filters.price}
+            />
+          </div>
         </div>
 
         <div className="filter filter-category">
@@ -98,7 +109,7 @@ const FilterUI = () => {
           </label>
         </div>
       </div>
-    </React.Fragment> 
+    </React.Fragment>
   );
 };
 

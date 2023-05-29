@@ -39,7 +39,7 @@ const FilterContext = ({ children }) => {
         break;
       }
       case "reset": {
-        return { searchQuery: "", price: 0, categories: [], sizes: [], rating: 0, sortby: "" }
+        return { searchQuery: "", price: 3000, categories: [], sizes: [], rating: 0, sortby: "" }
       }
       default: {
         return filters;
@@ -49,7 +49,7 @@ const FilterContext = ({ children }) => {
 
   const [filters, dispatchFilter] = useReducer(FilterManager, {
     searchQuery: "",
-    price: 0,
+    price: 3000,
     categories: [],
     sizes: [],
     rating: 0,
