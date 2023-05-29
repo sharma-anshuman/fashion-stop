@@ -36,8 +36,8 @@ const Pagination = ({ children }) => {
       pageCount={pageCount}
       onPageChange={changePage}
       containerClassName="paginate-container"
-      previousLinkClassName="prevButton"
-      nextLinkClassName="nextButton"
+      previousLinkClassName={`prevButton ${pageNumber == 0?"disable":""}`}
+      nextLinkClassName={`nextButton ${pageNumber == pageCount-1?"disable":""}`}
       disabledClassName="paginationDisabled"
       activeClassName="paginationActive"
     />

@@ -24,3 +24,12 @@
 .paginationActive a{
     background-color: #146C94;
 }
+
+.disable{
+    background-color: grey !important;
+    cursor: not-allowed !important;
+}
+
+.previous .paginationDisabled{
+   background-color: black !important;
+}

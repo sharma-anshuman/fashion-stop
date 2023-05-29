@@ -21,7 +21,6 @@ const ProductsPage = () => {
   ) : (
     <React.Fragment>
       <div className="pro-main">
-        {/* <Navbar /> */}
         <div className="products-and-filter">
           <div className="filter-component">
             <FilterUI />
