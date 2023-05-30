@@ -7,8 +7,6 @@
 
 # testing
 /coverage
-/src/firebase-config.js
-/src/clothing-data.json
 
 # production
 /build
