@@ -1,28 +1,52 @@
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
-.banner-img{
-    width: 100%;
-    cursor: pointer;
-    -webkit-user-drag: none;
+.banner-img {
+  width: 100%;
+  -webkit-user-drag: none;
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background-color: #AFD3E2;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #19A7CE;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #146C94;
-  }
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #afd3e2;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #19a7ce;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #146c94;
+}
+
+.homepage-mid {
+  display: flex;
+  justify-content: center;
+  margin: 6rem auto;
+  align-items: center;
+  gap: 10%;
+}
+.carousel-comp {
+  width: fit-content;
+  width: 25%;
+}
+
+.homepage-mid h1 {
+  font-weight: 300;
+  font-size: 2.5rem;
+  max-width: 30%;
+}
+
+.home-categories{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 4rem auto;
+}

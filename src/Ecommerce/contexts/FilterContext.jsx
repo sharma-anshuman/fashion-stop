@@ -24,6 +24,10 @@ const FilterContext = ({ children }) => {
           { ...filters, categories: [...filters.categories, value] };
         break;
       }
+      case "clearCategory":{
+        return {...filters, categories: []};
+        break;
+      }
       case "size": {
         return filters.sizes.includes(value) ?
           { ...filters, sizes: filters.sizes.filter(val => val != value) } :
