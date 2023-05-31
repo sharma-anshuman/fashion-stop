@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 8%;
     /* background-color: lightskyblue; */
 }
 .error{
@@ -20,7 +19,21 @@
 }
 .signupButtons{
     display: flex;
+    /* background-color: blue; */
+    justify-content: center;
 }
+.signupButtons button{
+    /* margin: auto; */
+}
+.signup-fields{
+    /* background-color: lightsalmon; */
+    margin-left: -15%;
+}
+.already{
+    /* background-color: green; */
+    text-align: center;
+}
+
 .signupForm button{
     max-width: fit-content;
     border: none;
@@ -36,4 +49,9 @@
 .signupForm button:hover{
     background-color: #19A7CE;
     color: white;
+}
+.sign-error{
+    color: red;
+    margin-left: -13%;
+    /* background-color: green; */
 }

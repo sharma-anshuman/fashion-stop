@@ -4,6 +4,10 @@
     gap: 1rem;
 }
 
+.text-fields{
+    margin-left: -15%;
+}
+
 .login-buttons button{
     background-color: #19A7CE;
     color: white;

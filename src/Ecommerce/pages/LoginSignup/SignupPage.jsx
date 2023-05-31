@@ -15,7 +15,6 @@ const SignupPage = () => {
 
   return (
     <React.Fragment>
-      {/* <Navbar /> */}
       <div className="mainSignup">{MainSignupComponent}</div>
       <ToastContainer />
     </React.Fragment>

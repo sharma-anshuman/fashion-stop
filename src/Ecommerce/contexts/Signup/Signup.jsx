@@ -114,6 +114,8 @@ const SignUpContext = ({ children }) => {
         <div className="signupComponent">
           <h1>Signup</h1>
           <Form className="signupForm">
+            <div className="signup-fields">
+
             <TextField lable="First Name" name="firstName" type="text" />
             <TextField lable="Last Name" name="lastName" type="text" />
             <TextField lable="Email" name="email" type="email" />
@@ -122,12 +124,13 @@ const SignUpContext = ({ children }) => {
               lable="Confirm Password"
               name="confirmPassword"
               type="password"
-            />
+              />
+              </div>
             <div className="signupButtons">
               <button type="submit">Submit</button>
               <button type="reset">Reset</button>
             </div>
-            <NavLink to="/login">Already have an account</NavLink>
+            <NavLink className="already" to="/login">Already have an account?</NavLink>
           </Form>
         </div>
       )}
@@ -149,8 +152,11 @@ const SignUpContext = ({ children }) => {
         <div className="loginComponent">
           <h1>Login</h1>
           <Form className="loginForm">
+            <div className="text-fields">
             <TextField lable="Email" name="email" type="email" />
             <TextField lable="Password" name="password" type="password" />
+
+            </div>
             <div className="login-buttons">
             <button type="submit">Login</button>
             <button onClick={loginAsGuest}>Login as guest</button>
