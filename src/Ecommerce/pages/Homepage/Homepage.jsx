@@ -50,6 +50,7 @@ const Homepage = () => {
           </div>
         </Carousel>
       </div>
+      <h1 className="categories-heading">Shop by Categories</h1>
       <div className="home-categories">
         <CategoryCard
           gender="men"
