@@ -45,7 +45,6 @@ const Pagination = ({ children }) => {
     setPerPage(getSize());
   }
   window.addEventListener("resize", handleResize);
-  console.log(window.innerWidth)
   const pagesVisited = pageNumber * dataPerPage;
 
   const displayData = data
