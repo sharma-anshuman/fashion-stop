@@ -27,7 +27,7 @@ FashionStop is a web-based e-commerce clothing application built using ReactJS a
 To run FashionStop locally on your machine, follow these steps:
 1. Clone the repository:
 ```bash
-git clone https://github.com/sharma-anshuman/fashionstop.git
+git clone https://github.com/sharma-anshuman/fashion-stop.git
 ```
 2. Navigate to the project directory:
 ```bash
