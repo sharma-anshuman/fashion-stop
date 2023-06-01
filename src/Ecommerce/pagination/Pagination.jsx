@@ -27,7 +27,7 @@ const Pagination = ({ children }) => {
     else if(window.innerWidth>2471){
       return 16;
     }
-    else if(window.innerWidth>2170){
+    else if(window.innerWidth>2168){
       return 14;
     }
     else if(window.innerWidth>1865){
