@@ -14,7 +14,29 @@ const Pagination = ({ children }) => {
   const [pageNumber, setPageNumber] = useState(0);
   const { dataAfterFilter: data } = UseFilters();
 
-  const dataPerPage = 8;
+  const getSize = () => {
+    if(window.innerWidth>2470){
+      return 16;
+    }
+    else if(window.innerWidth>2200){
+      return 14;
+    }
+    else if(window.innerWidth>1865){
+      return 12;
+    }
+    else if(window.innerWidth>1565){
+      return 10;
+    }
+    return 8;
+  }
+
+  const [dataPerPage, setPerPage] = useState(getSize());
+
+  const handleResize = () => {
+    setPerPage(getSize());
+  }
+  window.addEventListener("resize", handleResize);
+  console.log(window.innerWidth)
   const pagesVisited = pageNumber * dataPerPage;
 
   const displayData = data
