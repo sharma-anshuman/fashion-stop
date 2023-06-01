@@ -60,3 +60,8 @@ body {
   margin-bottom: -1.2rem;
   text-align: center;
 }
+
+.homepage-upper{
+  position: relative;
+  cursor: pointer;
+}

@@ -15,16 +15,25 @@ const Pagination = ({ children }) => {
   const { dataAfterFilter: data } = UseFilters();
 
   const getSize = () => {
-    if(window.innerWidth>2470){
+    if(window.innerWidth>3381){
+      return 22;
+    }
+    else if(window.innerWidth>3077){
+      return 20;
+    }
+    else if(window.innerWidth>2774){
+      return 18;
+    }
+    else if(window.innerWidth>2471){
       return 16;
     }
-    else if(window.innerWidth>2200){
+    else if(window.innerWidth>2170){
       return 14;
     }
     else if(window.innerWidth>1865){
       return 12;
     }
-    else if(window.innerWidth>1565){
+    else if(window.innerWidth>1562){
       return 10;
     }
     return 8;

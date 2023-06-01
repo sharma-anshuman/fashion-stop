@@ -17,6 +17,7 @@ import CategoryCard from "./CategoryCard";
 const Homepage = () => {
   const { data } = UseData();
   const { currUser } = UseSignupContext();
+  const navigate = useNavigate();
 
   const thumbHandler = () => {};
 
@@ -24,10 +25,13 @@ const Homepage = () => {
     <Loader />
   ) : (
     <React.Fragment>
-      <img
-        className="banner-img"
-        src="https://sslimages.shoppersstop.com/sys-master/root/h21/he0/30076670672926/Celio-web---mix-brands-2023-05-25--mens-fest.jpg"
-      />
+      <div className="homepage-upper">
+        <img
+          onClick={() => navigate("/products")}
+          className="banner-img"
+          src="https://sslimages.shoppersstop.com/sys-master/root/h21/he0/30076670672926/Celio-web---mix-brands-2023-05-25--mens-fest.jpg"
+        />
+      </div>
 
       <div className="homepage-mid">
         <h1>We've got it all covered for you!!</h1>
