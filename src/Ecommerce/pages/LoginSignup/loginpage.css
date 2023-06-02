@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* justify-self: flex-start !important; */
     /* background-color: lightskyblue; */
 }
 .mainLogin h1{

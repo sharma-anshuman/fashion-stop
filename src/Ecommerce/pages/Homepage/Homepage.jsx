@@ -69,7 +69,7 @@ const Homepage = () => {
           imgUrl="https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/21388840/2023/5/30/f7604b31-5045-4994-9c1e-4b13a0fcf3301685442174971-HERENOW-Boys-Checked-Pure-Cotton-Casual-Shirt-35716854421745-1.jpg"
         />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

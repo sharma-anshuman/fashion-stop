@@ -5,6 +5,8 @@
     background-color: #19A7CE;
     margin: 0;
     padding: 0.5rem;
+    margin-top: 2rem;
+    width: 100vw;
 }
 .social-icon{
     margin: 1rem;
@@ -14,4 +16,8 @@
 }
 .social-icon:hover{
     color: #146C94;
+}
+.copyright p{
+    color: white;
+    font-weight: 500;
 }

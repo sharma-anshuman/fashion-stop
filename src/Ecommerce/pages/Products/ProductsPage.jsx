@@ -31,7 +31,6 @@ const ProductsPage = () => {
             {displayData.length!==0 && <div className="paginate-karo">{paginateKaro}</div>}
           </div>
         </div>
-        <Footer />
       </div>
       <ToastContainer />
     </React.Fragment>

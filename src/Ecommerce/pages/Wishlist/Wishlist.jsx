@@ -4,6 +4,7 @@ import { UseData } from "../../contexts/DataContext";
 import CartCard from "../Cart/CartCard";
 import { ToastContainer } from "react-toastify";
 import './wishlist.css'
+import WishlistCard from "./WishlistCard";
 
 const Wishlist = () => {
   const { data, wishlist, WishlistHandler } = UseData();
@@ -16,7 +17,7 @@ const Wishlist = () => {
         {dispWishlist.length === 0 && <h3>Your Wishlist is empty</h3>}
         <div className="wishlistProducts">
           {dispWishlist.map((item) => (
-            <CartCard key={item.id} item={item} />
+            <WishlistCard key={item.id} item={item} />
           ))}
         </div>
       </div>

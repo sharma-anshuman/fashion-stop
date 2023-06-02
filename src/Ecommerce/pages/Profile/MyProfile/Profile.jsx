@@ -22,8 +22,6 @@ const Profile = () => {
   
   return (
     <React.Fragment>
-      {/* <div className="profile-main"> */}
-      {/* <Navbar /> */}
       <div className="container">
         <div className="cover-photo">
           <img
@@ -41,38 +39,10 @@ const Profile = () => {
         >
           Logout
         </button>
-      {/* </div> */}
       </div>
-      <Footer />
       <ToastContainer />
     </React.Fragment>
   );
 };
 
 export default Profile;
-
-// <div>
-//   <h1>My profile</h1>
-//   <button
-//     onClick={() => {
-//       navigate("/profile/addresses");
-//     }}
-//   >
-//     My addresses
-//   </button>
-//   <button
-//     onClick={() => {
-//       navigate("/profile/myorders");
-//     }}
-//   >
-//     My orders
-//   </button>
-//   <button
-//     onClick={() => {
-//       logOut();
-//     }}
-//   >
-//     Log out
-//   </button>
-//   <ToastContainer />
-// </div>;
