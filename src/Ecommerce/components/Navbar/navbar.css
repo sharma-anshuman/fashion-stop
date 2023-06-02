@@ -66,12 +66,9 @@ nav h3{
     display: inline;
     color: #F6F1F1;
     font-weight: 400;
-    cursor: pointer;
+    cursor: default;
+    user-select: none;
     font-size: 1.15rem;
-}
-nav h3:hover{
-    color: #146C94;
-    text-decoration: underline;
 }
 
 .nav-icon{

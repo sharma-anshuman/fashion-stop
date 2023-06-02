@@ -54,7 +54,7 @@ const Navbar = () => {
       </div>
       <div className="nav-right">
         {userData !== null && (
-          <h3 onClick={() => navigate("/profile")}>Hey {firstName}!!</h3>
+          <h3>Hey {firstName}!!</h3>
         )}
         <button onClick={() => navigate("/products")}>Explore</button>
         <button className="nav-icon" onClick={() => navigate("/cart")}>

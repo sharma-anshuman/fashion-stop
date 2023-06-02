@@ -9,9 +9,10 @@ import { faSmileWink } from "@fortawesome/free-regular-svg-icons";
 import Footer from "../../components/Footer/Footer";
 
 const OrderDescription = () => {
-  const { currOrder, firstName, addresses, data } = UseData();
+  const { cart, currOrder, firstName, addresses, data } = UseData();
   const navigate = useNavigate();
-  if (!currOrder?.time?.length) navigate("cart");
+  if(Object.keys(cart).length === 0) navigate("/products");
+  else if (currOrder.data === undefined) navigate("/cart");
   const {
     date,
     time,
@@ -20,9 +21,9 @@ const OrderDescription = () => {
     address: addId,
     products: prod,
   } = currOrder;
-  const products = data.filter(({ id }) => prod[id]);
-  const addressObj = addresses.find(({ id }) => id === addId);
-  const { city, state } = addressObj;
+  const products = prod?.length?data?.filter(({ id }) => prod[id]):[];
+  const addressObj = addresses?.find(({ id }) => id === addId);
+  const { city, state } = addressObj?addressObj:{city: "",state: ""};
 
   return (
     <React.Fragment>
@@ -60,7 +61,7 @@ const OrderDescription = () => {
           </div>
 
           <div className="summary-products">
-            {products.map((product) => (
+            {products?.map((product) => (
               <div className="summary-product">
                 <div className="summary-product-left">
                   <img src={product.imageLink} alt="image" />
