@@ -4,8 +4,8 @@ import { CSSTransition } from "react-transition-group";
 import { faker } from "@faker-js/faker";
 import { v4 as uuidv4 } from "uuid";
 import "./modal.css";
-import { UseData } from "../../contexts/DataContext";
 import { ToastHandler } from "../Toast/Toast";
+import { UseData } from "../../contexts/DataContext";
 const states = [
   "Andhra Pradesh",
   "Arunachal Pradesh",
@@ -43,12 +43,13 @@ const states = [
   "Puducherry",
 ];
 
-const Modal = (props) => {
+const EditAddressModal = (props) => {
   const closeOnEscapeKeyDown = (e) => {
     if ((e.charCode || e.keyCode) === 27) {
       props.onClose();
     }
   };
+  console.log("its in the edit address modal");
 
   const initialAdd = {
     address: "",
@@ -60,7 +61,7 @@ const Modal = (props) => {
   };
 
   const { addresses, setAddresses } = UseData();
-  const  [currAddress, setCurr ] = useState({...initialAdd});
+  const  [currAddress, setCurr ] = useState({...props.item});
 
   useEffect(() => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
@@ -68,13 +69,15 @@ const Modal = (props) => {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
     };
   }, []);
-  console.log("it's in the modal");
+
   const submitHandler = (event) => {
-    const tempAdd = {...currAddress, id: uuidv4()}
-    ToastHandler("success", "Address added successfully");
-    setAddresses([...addresses, tempAdd]);
+    const currTempAdd = addresses.find(({id}) => id === props.item.id);
+    const finalAddresses = addresses.map((temp) => temp.id === props.item.id?{...currAddress}:temp)
+    if(JSON.stringify(Object.values(currAddress)) !== JSON.stringify(Object.values(currTempAdd))){
+        ToastHandler("success", "Address Successfully updated");
+    }   
+    setAddresses([...finalAddresses]);
     event.preventDefault();
-    setCurr({...initialAdd});
     props.onClose();
   };
 
@@ -199,4 +202,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default EditAddressModal;

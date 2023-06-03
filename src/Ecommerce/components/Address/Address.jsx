@@ -5,6 +5,7 @@ import { faAdd, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import SingleAddress from "./SingleAddress";
 import Modal from "../Modal/Modal";
 import "./address.css";
+import { ToastContainer } from "react-toastify";
 
 const Address = () => {
   const { addresses } = UseData();
@@ -29,6 +30,7 @@ const Address = () => {
           show={show}
         ></Modal>
       </div>
+      <ToastContainer />
     </div>
   );
 };
