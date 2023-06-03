@@ -21,7 +21,7 @@ const OrderDescription = () => {
     address: addId,
     products: prod,
   } = currOrder;
-  const products = prod?.length?data?.filter(({ id }) => prod[id]):[];
+  const products = data?.filter(({ id }) => prod[id]);
   const addressObj = addresses?.find(({ id }) => id === addId);
   const { city, state } = addressObj?addressObj:{city: "",state: ""};
 
