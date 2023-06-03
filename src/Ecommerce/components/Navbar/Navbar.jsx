@@ -4,6 +4,8 @@ import logo from "../../assets/icons/icon-large.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
+  faDirections,
+  faCompass,
   faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -18,6 +20,7 @@ import { db } from "../../../firebase-config";
 import { getDoc, doc } from "firebase/firestore";
 import { setUserId } from "firebase/analytics";
 import { UseData } from "../../contexts/DataContext";
+import { faSafari, faWpexplorer } from "@fortawesome/free-brands-svg-icons";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -56,7 +59,7 @@ const Navbar = () => {
         {userData !== null && (
           <h3>Hey {firstName}!!</h3>
         )}
-        <button onClick={() => navigate("/products")}>Explore</button>
+        <button className="nav-icon compass" onClick={() => navigate("/products")}><FontAwesomeIcon icon={faCompass} /></button>
         <button className="nav-icon" onClick={() => navigate("/cart")}>
           <FontAwesomeIcon icon={faShoppingCart} />
           {Object.keys(cart).length>0 && <div className="lengthCount"><p>{Object.keys(cart).length}</p></div>}

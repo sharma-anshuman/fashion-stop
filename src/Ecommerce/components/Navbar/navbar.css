@@ -76,6 +76,12 @@ nav h3{
     padding-top: 5px;
     padding-right: 8px;
 }
+.compass{
+    font-size: 1.3rem;
+    margin: 0 auto;
+    padding-top: 0;
+    padding-bottom: 0;
+}
 .lengthCount{
     position: absolute;
     top: 0;
