@@ -25,6 +25,7 @@ const SignupContext = createContext();
 
 const SignUpContext = ({ children }) => {
   const [currUser, setCurr] = useState({});
+  const [loading, setLoading] = useState(false);
 
   onAuthStateChanged(auth, (currentUser) => {
     setCurr(currentUser);
@@ -36,10 +37,19 @@ const SignUpContext = ({ children }) => {
         auth,
         values.email,
         values.password
-      );
-      ToastHandler("success", "Logged in!");
+        );
+        console.log("here it got succeed!!");
+        setTimeout(() => {
+          ToastHandler("success", "Logged in!");
+        }, 300);
     } catch (e) {
-      if(currUser==={}) ToastHandler("error", e.message);
+      if(e.message === "Firebase: Error (auth/invalid-email)."){
+        ToastHandler("error", "Enter Valid Credentials");
+      }
+      else if(e.message === "Firebase: Error (auth/wrong-password)."){
+        ToastHandler("error", "Wrong Password");
+      }
+      else ToastHandler("error", e.message);
       console.error("here's the error's message", e.message, e);
     }
   };
@@ -67,8 +77,10 @@ const SignUpContext = ({ children }) => {
   };
 
   const logOut = async () => {
+    setTimeout(() => {
+      ToastHandler("success", "Logged Out!");
+    }, 200);
     await signOut(auth);
-    ToastHandler("success", "Logged Out!");
   };
 
   const loginAsGuest = () => {
@@ -77,8 +89,6 @@ const SignUpContext = ({ children }) => {
     );
     logIn({ email: "guest@gmail.com", password: "abcd1234" });
   };
-
-  // console.log("It's the signup context", auth?.currentUser);
 
   const validate = Yup.object({
     firstName: Yup.string()
@@ -144,7 +154,6 @@ const SignUpContext = ({ children }) => {
         password: "",
       }}
       onSubmit={(values) => {
-        // console.log("here is login", values);
         logIn(values);
       }}
     >
@@ -160,7 +169,6 @@ const SignUpContext = ({ children }) => {
             <div className="login-buttons">
             <button type="submit">Login</button>
             <button onClick={loginAsGuest}>Login as guest</button>
-
             </div>
             <NavLink className="navlink" to="/signup">
               Don't have an account
@@ -176,6 +184,7 @@ const SignUpContext = ({ children }) => {
     MainLoginComponent,
     currUser,
     logOut,
+    loading
   };
 
   return (

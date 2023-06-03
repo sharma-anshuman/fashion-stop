@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { UseSignupContext } from "../../contexts/Signup/Signup";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import Loader from "../../components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 
 const LoginPage = () => {
-  const { MainLoginComponent, currUser } = UseSignupContext();
+  const { MainLoginComponent, currUser, loading } = UseSignupContext();
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
@@ -15,9 +16,8 @@ const LoginPage = () => {
     }
   }, [currUser]);
 
-  return (
+  return loading?<Loader />: (
     <React.Fragment>
-      {/* <Navbar /> */}
       <div className="mainLogin">{MainLoginComponent}</div>
       <ToastContainer />
     </React.Fragment>
