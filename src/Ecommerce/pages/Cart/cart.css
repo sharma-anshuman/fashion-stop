@@ -1,23 +1,19 @@
 .cart{
     text-align: center;
-    /* background-color: yellow; */
+    align-self: center;
 }
 .cart-main{
     display: flex;
     justify-content: center;
 }
 .cartProducts{
-    margin: 0rem 0rem !important;
-    /* display: flex;
-    flex-direction: column;
-    flex-basis: 1000%; */
+    margin: 0rem 2rem !important;
     align-self: center;
-    width: fit-content;
-    /* background-color: blue; */
+    width: min-content;
+    justify-self: center;
 }
 .checkoutCard{
     justify-self: center;
-    /* background-color: red; */
     height: fit-content;
     width: 28%;
 }

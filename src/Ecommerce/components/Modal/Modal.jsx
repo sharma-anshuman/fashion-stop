@@ -68,7 +68,6 @@ const Modal = (props) => {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
     };
   }, []);
-  console.log("it's in the modal");
   const submitHandler = (event) => {
     const tempAdd = {...currAddress, id: uuidv4()}
     ToastHandler("success", "Address added successfully");

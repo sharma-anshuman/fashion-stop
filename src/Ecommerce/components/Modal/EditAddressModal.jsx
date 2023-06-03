@@ -49,7 +49,6 @@ const EditAddressModal = (props) => {
       props.onClose();
     }
   };
-  console.log("its in the edit address modal");
 
   const initialAdd = {
     address: "",

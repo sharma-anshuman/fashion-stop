@@ -42,7 +42,6 @@ const Pagination = ({ children }) => {
   const [dataPerPage, setPerPage] = useState(getSize());
 
   const handleResize = () => {
-    console.log(window.innerWidth);
     setPerPage(getSize());
 
   }
@@ -54,7 +53,7 @@ const Pagination = ({ children }) => {
     .map((item) => <ProductCard key={item.id} item={item} />);
   const NoDataMsg = "Oops!! No data found";
 
-  useEffect(() => {setPageNumber(0)}, [data])
+  useEffect(() => {setPageNumber(0)}, [data.length])
 
   const pageCount = Math.ceil(data.length / dataPerPage);
   const changePage = ({ selected }) => {

@@ -24,7 +24,7 @@ const FilterUI = () => {
         </div>
 
         <div className="filter filter-price">
-          <div class="tooltip">
+          <div className="tooltip">
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <h3>Price</h3>
             <span className="tooltiptext">{filters.price}</span>

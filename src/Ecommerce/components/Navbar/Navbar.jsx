@@ -28,7 +28,6 @@ const Navbar = () => {
   const { userData, firstName, cart, wishlist } = UseData();
   const [searchValue, setSearch] = useState("");
   const location = useLocation().pathname;
-  console.log("locc", location);
 
   useEffect(() => {
     const timer = setTimeout(() => {

@@ -16,7 +16,6 @@ const Cart = () => {
   return (
     <React.Fragment>
       <div className="cart">
-        {/* <Navbar /> */}
         <h2>Cart ({dispCart.length})</h2>
         {dispCart.length === 0 && <h3>Your cart is empty</h3>}
         {dispCart.length > 0 && (

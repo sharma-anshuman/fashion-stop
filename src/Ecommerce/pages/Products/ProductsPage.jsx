@@ -26,7 +26,7 @@ const ProductsPage = () => {
             <FilterUI />
           </div>
           <div className="main-products">
-            {displayData.length === 0 && <h1>{NoDataMsg}</h1>}
+            {displayData.length === 0 && <h1 style={{textAlign: "center"}}>{NoDataMsg}</h1>}
             <div className="products">{displayData}</div>
             {displayData.length!==0 && <div className="paginate-karo">{paginateKaro}</div>}
           </div>

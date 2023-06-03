@@ -1,7 +1,7 @@
 .wishlistCard {
   display: flex;
-  max-width: 55%;
-  /* max-height: 10%; */
+  max-width: 58%;
+  max-height: 11rem;
   margin: 1rem auto;
   text-align: left;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
