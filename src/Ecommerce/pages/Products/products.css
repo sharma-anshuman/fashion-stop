@@ -22,7 +22,7 @@
 
 .filter-component{
     display: flex;
-    overflow: scroll;
+    overflow-y: scroll;
     width: 20%;
     min-width: 12rem;
 }
