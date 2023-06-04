@@ -7,7 +7,7 @@ import {
   faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faTeletype } from "@fortawesome/free-solid-svg-icons";
+import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 
 const Footer = () => {
   return (
@@ -27,7 +27,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="copyright">
-        <p>© Copyright 2023-2024 MIT Liscence</p>
+        <p><FontAwesomeIcon icon={faCopyright} /> Copyright 2023-2024 MIT License</p>
       </div>
     </footer>
   );
