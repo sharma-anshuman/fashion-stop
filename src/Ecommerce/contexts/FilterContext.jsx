@@ -53,7 +53,7 @@ const FilterContext = ({ children }) => {
 
   const [filters, dispatchFilter] = useReducer(FilterManager, {
     searchQuery: "",
-    price: 3000,
+    price: 2700,
     categories: [],
     sizes: [],
     rating: 0,

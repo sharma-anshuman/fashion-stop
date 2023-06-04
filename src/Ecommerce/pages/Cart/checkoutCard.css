@@ -4,6 +4,7 @@
   padding: 0.5rem 1rem;
   margin: 1rem;
   min-width: 15rem;
+  height: fit-content;
   text-align: center;
 }
 .checkout-head {

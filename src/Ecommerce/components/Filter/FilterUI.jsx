@@ -35,7 +35,7 @@ const FilterUI = () => {
               }
               type="range"
               min={100}
-              max={3000}
+              max={2700}
               className="price-slider"
               value={filters.price}
             />

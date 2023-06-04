@@ -63,6 +63,10 @@ const EditAddressModal = (props) => {
   const  [currAddress, setCurr ] = useState({...props.item});
 
   useEffect(() => {
+    if(props.show) setCurr({...props.item});
+  }, [props.show]);
+
+  useEffect(() => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
     return function cleanup() {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
