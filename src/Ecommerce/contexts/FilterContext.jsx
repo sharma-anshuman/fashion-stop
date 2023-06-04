@@ -11,17 +11,17 @@ const FilterContext = ({ children }) => {
   const FilterManager = (filters, { value, type }) => {
     switch (type) {
       case "search": {
-        return { ...filters, searchQuery: value }
+        return { ...filters, searchQuery: value, isReset: false }
         break;
       }
       case "price": {
-        return { ...filters, price: Number(value) }
+        return { ...filters, price: Number(value), isReset: false }
         break;
       }
       case "category": {
         return filters.categories.includes(value) ?
-          { ...filters, categories: filters.categories.filter(val => val != value) } :
-          { ...filters, categories: [...filters.categories, value] };
+          { ...filters, categories: filters.categories.filter(val => val != value), isReset: false } :
+          { ...filters, categories: [...filters.categories, value], isReset: false };
         break;
       }
       case "clearCategory":{
@@ -30,20 +30,20 @@ const FilterContext = ({ children }) => {
       }
       case "size": {
         return filters.sizes.includes(value) ?
-          { ...filters, sizes: filters.sizes.filter(val => val != value) } :
-          { ...filters, sizes: [...filters.sizes, value] };
+          { ...filters, sizes: filters.sizes.filter(val => val != value), isReset: false } :
+          { ...filters, sizes: [...filters.sizes, value], isReset: false };
         break;
       }
       case "rating": {
-        return { ...filters, rating: value }
+        return { ...filters, rating: value, isReset: false }
         break;
       }
       case "sort": {
-        return { ...filters, sortby: value }
+        return { ...filters, sortby: value, isReset: false }
         break;
       }
       case "reset": {
-        return { searchQuery: "", price: 3000, categories: [], sizes: [], rating: 0, sortby: "" }
+        return { searchQuery: "", price: 3000, categories: [], sizes: [], rating: 0, sortby: "", isReset: true }
       }
       default: {
         return filters;
@@ -58,6 +58,7 @@ const FilterContext = ({ children }) => {
     sizes: [],
     rating: 0,
     sortby: "",
+    isReset: true
   });
 
   const filterFunctions = [(tempData) => {
@@ -89,8 +90,6 @@ const FilterContext = ({ children }) => {
 
 
   let dataAfterFilter = filterFunctions.reduce((acc, curr) => curr(acc), [...data]);
-
-  // if(!dataAfterFilter.length) dataAfterFilter = data;
 
   const elements = { filters, dispatchFilter, dataAfterFilter };
   return (

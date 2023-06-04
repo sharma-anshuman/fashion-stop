@@ -24,7 +24,7 @@ import { faSafari, faWpexplorer } from "@fortawesome/free-brands-svg-icons";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { dispatchFilter } = UseFilters();
+  const { dispatchFilter, filters } = UseFilters();
   const { userData, firstName, cart, wishlist } = UseData();
   const [searchValue, setSearch] = useState("");
   const location = useLocation().pathname;
@@ -38,6 +38,10 @@ const Navbar = () => {
     }
   }, [searchValue]);
 
+  useEffect(() => {
+    if(filters.isReset) setSearch("");
+  }, [filters.isReset])
+
   return (
     <nav>
       <div className="nav-left">
@@ -47,6 +51,7 @@ const Navbar = () => {
       </div>
       <div className="nav-mid">
        { location === '/products' && <input
+          value={searchValue}
           onChange={(event) =>
             setSearch(event.target.value)
           }
