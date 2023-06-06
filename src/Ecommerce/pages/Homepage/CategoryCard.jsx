@@ -23,7 +23,7 @@ const CategoryCard = ({gender, imgUrl}) => {
             </div>
 
             <div className='category-rightBottom'>
-                <p>We've got all {gender} fashion convered!!</p>
+                <p>We've got all {gender} fashion covered!!</p>
             </div>
         </div>
     </div>
